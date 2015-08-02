@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="string_list">Список</string>
+    <string name="string_letter">Буква</string>
+    <string name="string_number">Число</string>
+    <string name="string_diceroll">Бросок кубика</string>
+    <string name="string_color">Цвет</string>
+    <string name="string_coinflip">Бросок монеты</string>
+    <string name="string_image">Изображение</string>
+    <string name="string_password">Пароль</string>
+    <string name="string_card">Карта</string>
+    <string name="string_time">Время</string>
+    <string name="string_month">Месяц</string>
+    <string name="string_country">Страна</string>
+    <string name="string_rps">КНБ</string>
+    <string name="string_ymn">Да/Нет</string>
+</resources>

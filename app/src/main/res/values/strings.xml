@@ -1,17 +1,31 @@
 <resources>
-    <string name="app_name">Randomizer</string>
-    <string name="string.list">List</string>
-    <string name="string.letter">Letter</string>
-    <string name="string.number">Number</string>
-    <string name="string.diceroll">Dice Roll</string>
-    <string name="string.color">Color</string>
-    <string name="string.coinflip">Coin Flip</string>
-    <string name="string.image">Image</string>
-    <string name="string.password">Password</string>
-    <string name="string.card">Card</string>
-    <string name="string.time">Time</string>
-    <string name="string.month">Month</string>
-    <string name="string.country">Country</string>
-    <string name="string.rps">RPS</string>
-    <string name="string.ymn">Yes/No</string>
+    <string name="app_name" translatable="false">Randomizer</string>
+
+    <!-- MainActivity -->
+    <string name="string_list">List</string>
+    <string name="string_letter">Letter</string>
+    <string name="string_number">Number</string>
+    <string name="string_diceroll">Dice Roll</string>
+    <string name="string_color">Color</string>
+    <string name="string_coinflip">Coin Flip</string>
+    <string name="string_image">Image</string>
+    <string name="string_password">Password</string>
+    <string name="string_card">Card</string>
+    <string name="string_time">Time</string>
+    <string name="string_month">Month</string>
+    <string name="string_country">Country</string>
+    <string name="string_rps">RPS</string>
+    <string name="string_ymn">Yes/No</string>
+    
+    <!-- LetterActivity -->
+
+    <string-array name="string_array_letter">
+        <item>All</item>
+        <item>Vowels</item>
+        <item>Consonants</item>
+    </string-array>
+
+    <string name="string_vowels">AEIOU</string>
+    <string name="string_consonants">BCDFGHJKLMNPQRSTVWXYZ</string>
+    
 </resources>
