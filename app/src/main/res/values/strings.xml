@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Randomizer</string>
+    <string name="string.list">List</string>
+    <string name="string.letter">Letter</string>
+    <string name="string.number">Number</string>
+    <string name="string.diceroll">Dice Roll</string>
+    <string name="string.color">Color</string>
+    <string name="string.coinflip">Coin Flip</string>
+    <string name="string.image">Image</string>
+    <string name="string.password">Password</string>
+    <string name="string.card">Card</string>
+    <string name="string.time">Time</string>
+    <string name="string.month">Month</string>
+    <string name="string.country">Country</string>
+    <string name="string.rps">RPS</string>
+    <string name="string.ymn">Yes/No</string>
+</resources>

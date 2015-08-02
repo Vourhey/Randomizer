@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_margin="10dp">
+
+        <Button
+            android:id="@+id/listButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string.list" />
+
+        <Button
+            android:id="@+id/numberButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string.number" />
+
+        <Button
+            android:id="@+id/colorButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string.color" />
+        <Button
+            android:id="@+id/imageButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string.image"/>
+
+        <Button
+            android:id="@+id/cardButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string.card"/>
+
+        <Button
+            android:id="@+id/monthButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string.month"/>
+
+        <Button
+            android:id="@+id/rpsButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string.rps"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_margin="10dp">
+
+        <Button
+            android:id="@+id/letterButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string.letter" />
+
+        <Button
+            android:id="@+id/dicerollButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string.diceroll"/>
+
+        <Button
+            android:id="@+id/coinflipButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string.coinflip"/>
+
+        <Button
+            android:id="@+id/passwordButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string.password"/>
+
+        <Button
+            android:id="@+id/timeButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string.time"/>
+
+        <Button
+            android:id="@+id/countryButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string.country"/>
+
+        <Button
+            android:id="@+id/ymnButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/string.ymn"/>
+
+    </LinearLayout>
+</LinearLayout>
