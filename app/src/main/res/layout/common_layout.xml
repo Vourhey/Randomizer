@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
+              android:orientation="vertical" android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:weightSum="1">
 
     <TextView
-        android:id="@+id/outputLetter"
+        android:id="@+id/randomTextView"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -15,14 +15,11 @@
         android:layout_margin="5dp"
         android:gravity="center" />
 
-    <Spinner
-        android:id="@+id/letterSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.10"
-        android:entries="@array/string_array_letter"
-        android:clickable="false"
-        android:spinnerMode="dropdown" />
+    <!-- It will never be used. It'll be replaced with another fragment in runtime -->
+    <FrameLayout
+        android:id="@+id/fragmentForReplace"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -37,7 +34,7 @@
             android:text="Generate"
             android:layout_weight="1"
             android:layout_margin="2dp"
-            android:onClick="generateLetter"/>
+            android:onClick="generate"/>
 
         <Button
             android:id="@+id/clearButton"
@@ -45,14 +42,14 @@
             android:layout_height="wrap_content"
             android:text="Clear History"
             android:layout_weight="1"
-            android:layout_margin="2dp" />
+            android:layout_margin="2dp"
+            android:onClick="clearHistory"/>
     </LinearLayout>
 
     <ListView
-        android:id="@+id/historyList"
-        android:layout_width="match_parent"
+        android:id="@+id/historyListView"
+        android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.70" />
-
+        android:layout_weight="0.8"/>
 
 </LinearLayout>

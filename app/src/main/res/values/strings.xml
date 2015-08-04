@@ -17,7 +17,7 @@
     <string name="string_rps">RPS</string>
     <string name="string_ymn">Yes/No</string>
     
-    <!-- LetterActivity -->
+    <!-- LetterFragment -->
 
     <string-array name="string_array_letter">
         <item>All</item>
@@ -27,5 +27,13 @@
 
     <string name="string_vowels">AEIOU</string>
     <string name="string_consonants">BCDFGHJKLMNPQRSTVWXYZ</string>
+
+    <!-- NumberActivity -->
+
+    <string-array name="string_array_number">
+        <item>All</item>
+        <item>Even Numbers</item>
+        <item>Odd Numbers</item>
+    </string-array>
     
 </resources>

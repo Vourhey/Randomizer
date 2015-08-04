@@ -1,40 +1,36 @@
 package com.vourheyapps.randomizer;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ListView;
+import android.view.ViewGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import java.util.Random;
 
 /**
- * Created by vourhey on 8/2/15.
+ * Created by vourhey on 8/4/15.
  */
-public class LetterActivity extends Activity {
-    private TextView outputLetter;
+public class LetterFragment extends CommonFragment {
     private Spinner letterSpinner;
-    private ListView historyList;
-
     private String vowels;
     private String consonants;
     private Random random;
 
     @Override
-    protected void onCreate(Bundle si) {
-        super.onCreate(si);
-        setContentView(R.layout.letter_layout);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View r = inflater.inflate(R.layout.letter_fragment, container, false);
 
-        outputLetter = (TextView) findViewById(R.id.outputLetter);
-        letterSpinner = (Spinner) findViewById(R.id.letterSpinner);
-
+        letterSpinner = (Spinner) r.findViewById(R.id.letterSpinner);
         vowels = getString(R.string.string_vowels);
         consonants = getString(R.string.string_consonants);
         random = new Random();
+
+        return r;
     }
 
-    public void generateLetter(View v) {
+    public String generate() {
         int p = letterSpinner.getSelectedItemPosition();
         String string = vowels + consonants;
 
@@ -48,10 +44,6 @@ public class LetterActivity extends Activity {
         }
 
         int letterPosition = random.nextInt(string.length());
-        char letter = string.charAt(letterPosition);
-
-        outputLetter.setText(String.valueOf(letter));
-        // add to history
+        return String.valueOf(string.charAt(letterPosition));
     }
-
 }
