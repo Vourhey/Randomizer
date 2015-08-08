@@ -29,21 +29,37 @@ public class CommonActivity extends Activity {
         int id = intent.getIntExtra(MainActivity.VIEWID_MESSAGE, 0);
 
         // TODO add the rest of fragments
-        CommonFragment fr = new CommonFragment();
+        currentFragment = new CommonFragment();
         switch (id) {
         case R.id.letterButton:
-            fr = new LetterFragment();
+            currentFragment = new LetterFragment();
             break;
         case R.id.numberButton:
-            fr = new NumberFragment();
+            currentFragment = new NumberFragment();
+            break;
+        case R.id.colorButton:
+            currentFragment = new ColorFragment();
+            break;
+        case R.id.passwordButton:
+            currentFragment = new PasswordFragment();
+            break;
+        case R.id.timeButton:
+            currentFragment = new TimeFragment();
+            break;
+        case R.id.monthButton:
+            currentFragment = new MonthFragment();
+            break;
+        case R.id.countryButton:
+            currentFragment = new CountryFragment();
+            break;
+        case R.id.ymnButton:
+            currentFragment = new YmnFragment();
             break;
         }
 
-        currentFragment = fr;
-
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentForReplace, fr);
+        fragmentTransaction.replace(R.id.fragmentForReplace, currentFragment);
         fragmentTransaction.commit();
     }
 

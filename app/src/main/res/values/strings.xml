@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name" translatable="false">Randomizer</string>
 
+    <string name="string_generate">Generate</string>
+    <string name="string_clear_history">Clear History</string>
+
     <!-- MainActivity -->
     <string name="string_list">List</string>
     <string name="string_letter">Letter</string>
@@ -34,6 +37,23 @@
         <item>All</item>
         <item>Even Numbers</item>
         <item>Odd Numbers</item>
+    </string-array>
+
+    <!-- MonthActivity -->
+
+    <string-array name="string_months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
     </string-array>
     
 </resources>
