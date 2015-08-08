@@ -55,5 +55,38 @@
         <item>November</item>
         <item>December</item>
     </string-array>
+
+    <!-- CountryActivity -->
+
+    <string-array name="string_countries_spinner">
+        <item>All</item>
+        <item>Africa</item>
+        <item>Asia</item>
+        <item>Central America</item>
+        <item>Eastern Europe</item>
+        <item>European Union</item>
+        <item>Middle East</item>
+        <item>Oceania</item>
+        <item>North America</item>
+        <item>South America</item>
+        <item>The Caribbean</item>
+    </string-array>
+
+    <!-- YmnActivity -->
+
+    <string-array name="string_ymn_answers">
+        <item>Yes</item>
+        <item>Maybe</item>
+        <item>No</item>
+    </string-array>
+
+    <!-- PasswordActivity -->
+
+    <string-array name="string_password_spinner">
+        <item>Alphanumeric</item>
+        <item>Alphanumeric with Characters</item>
+        <item>Numeric Only</item>
+        <item>Letters Only</item>
+    </string-array>
     
 </resources>
