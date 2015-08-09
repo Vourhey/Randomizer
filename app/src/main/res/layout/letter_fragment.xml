@@ -8,8 +8,6 @@
         android:id="@+id/letterSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/string_array_letter"
-        android:clickable="false"
-        android:spinnerMode="dropdown" />
+        android:entries="@array/string_array_letter"/>
 
 </LinearLayout>

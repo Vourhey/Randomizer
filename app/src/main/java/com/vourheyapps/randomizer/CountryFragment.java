@@ -30,16 +30,16 @@ public class CountryFragment extends CommonFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         random = new Random();
-        africaArray = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.string_countries_africa)));
-        asiaArray = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.string_countries_asia)));
-        centralAmericaArray = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.string_countries_central_america)));
-        easternEuropeArray = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.string_countries_eastern_europe)));
-        europeanUnionArray = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.string_countries_europe_union)));
-        middleEastArray = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.string_countries_middle_east)));
-        oceaniaArray = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.string_countries_oceania)));
-        northAmericaArray = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.string_countries_north_america)));
-        southAmericaArray = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.string_countries_south_america)));
-        theCaribbeanArray = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.string_countries_the_caribbean)));
+        africaArray = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.string_countries_africa)));
+        asiaArray = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.string_countries_asia)));
+        centralAmericaArray = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.string_countries_central_america)));
+        easternEuropeArray = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.string_countries_eastern_europe)));
+        europeanUnionArray = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.string_countries_europe_union)));
+        middleEastArray = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.string_countries_middle_east)));
+        oceaniaArray = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.string_countries_oceania)));
+        northAmericaArray = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.string_countries_north_america)));
+        southAmericaArray = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.string_countries_south_america)));
+        theCaribbeanArray = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.string_countries_the_caribbean)));
 
         View r = inflater.inflate(R.layout.country_fragment, container, false);
         countrySpinner = (Spinner) r.findViewById(R.id.countrySpinner);
@@ -48,7 +48,7 @@ public class CountryFragment extends CommonFragment {
 
     public String generate() {
         int p = countrySpinner.getSelectedItemPosition();
-        ArrayList<String> s = new ArrayList<>();
+        ArrayList<String> s = new ArrayList<String>();
 
         switch (p) {
         case 0: // All

@@ -22,8 +22,8 @@ public class HistoryList {
 
     public HistoryList(final Context context, ListView listView) {
         lv = listView;
-        history = new ArrayList<>();
-        arrayAdapter = new ArrayAdapter<>(context,
+        history = new ArrayList<String>();
+        arrayAdapter = new ArrayAdapter<String>(context,
                 android.R.layout.simple_list_item_1, history);
         lv.setAdapter(arrayAdapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

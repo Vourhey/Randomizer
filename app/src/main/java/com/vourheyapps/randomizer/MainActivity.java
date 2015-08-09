@@ -23,4 +23,34 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    public void openListActivity(View v) {
+        Intent intent = new Intent(this, RpsActivity.class);
+        startActivity(intent);
+    }
+
+    public void openDiceRollActivity(View v) {
+        Intent intent = new Intent(this, RpsActivity.class);
+        startActivity(intent);
+    }
+
+    public void openCoinFlipActivity(View v) {
+        Intent intent = new Intent(this, RpsActivity.class);
+        startActivity(intent);
+    }
+
+    public void openImageActivity(View v) {
+        Intent intent = new Intent(this, RpsActivity.class);
+        startActivity(intent);
+    }
+
+    public void openCardActivity(View v) {
+        Intent intent = new Intent(this, CardActivity.class);
+        startActivity(intent);
+    }
+
+    public void openRpsActivity(View v) {
+        Intent intent = new Intent(this, RpsActivity.class);
+        startActivity(intent);
+    }
+
 }

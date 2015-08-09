@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:text="@string/string_list"
             android:drawableStart="@drawable/list"
-            android:onClick="openActivity" />
+            android:onClick="openListActivity" />
 
         <Button
             android:id="@+id/numberButton"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:text="@string/string_image"
             android:drawableStart="@drawable/image"
-            android:onClick="openActivity"/>
+            android:onClick="openImageActivity"/>
 
         <Button
             android:id="@+id/cardButton"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:text="@string/string_card"
             android:drawableStart="@drawable/card"
-            android:onClick="openActivity"/>
+            android:onClick="openCardActivity"/>
 
         <Button
             android:id="@+id/monthButton"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:text="@string/string_rps"
             android:drawableStart="@drawable/rps"
-            android:onClick="openActivity"/>
+            android:onClick="openRpsActivity"/>
 
 
     </LinearLayout>
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:text="@string/string_diceroll"
             android:drawableStart="@drawable/diceroll"
-            android:onClick="openActivity"/>
+            android:onClick="openDiceRollActivity"/>
 
         <Button
             android:id="@+id/coinflipButton"
@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:text="@string/string_coinflip"
             android:drawableStart="@drawable/coinflip"
-            android:onClick="openActivity"/>
+            android:onClick="openCoinFlipActivity"/>
 
         <Button
             android:id="@+id/passwordButton"

@@ -28,7 +28,6 @@ public class CommonActivity extends Activity {
         Intent intent = getIntent();
         int id = intent.getIntExtra(MainActivity.VIEWID_MESSAGE, 0);
 
-        // TODO add the rest of fragments
         currentFragment = new CommonFragment();
         switch (id) {
         case R.id.letterButton:
