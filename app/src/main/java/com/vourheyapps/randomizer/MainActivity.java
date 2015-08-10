@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
     }
 
     public void openListActivity(View v) {
-        Intent intent = new Intent(this, RpsActivity.class);
+        Intent intent = new Intent(this, ListActivity.class);
         startActivity(intent);
     }
 
@@ -39,7 +39,7 @@ public class MainActivity extends Activity {
     }
 
     public void openImageActivity(View v) {
-        Intent intent = new Intent(this, RpsActivity.class);
+        Intent intent = new Intent(this, ImageActivity.class);
         startActivity(intent);
     }
 
