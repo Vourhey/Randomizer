@@ -154,7 +154,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Clear History"
+            android:text="@string/string_clear_history"
             android:onClick="clearCardHistory"/>
 
     </LinearLayout>

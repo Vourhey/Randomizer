@@ -88,5 +88,14 @@
         <item>Numeric Only</item>
         <item>Letters Only</item>
     </string-array>
+
+    <!-- RpsActivity -->
+    <string name="string_rps_you">You</string>
+    <string name="string_rps_computer">Computer</string>
+    <string name="string_rps_clear_score">Clear Score</string>
+    <string name="string_rps_change">Change</string>
+    <string name="string_rps_win">Win</string>
+    <string name="string_rps_draw">Draw</string>
+    <string name="string_rps_lose">Lose</string>
     
 </resources>

@@ -35,7 +35,7 @@ public class NumberFragment extends CommonFragment {
         int min = Integer.parseInt(minNumberText.getText().toString());
         int max = Integer.parseInt(maxNumberText.getText().toString());
 
-        // TODO numberSpinner is useless now
+        // TODO use numberSpinner
 
         int rand = random.nextInt(max - min) + min;
         return String.valueOf(rand);

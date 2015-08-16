@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -15,6 +17,8 @@ import java.util.Random;
 /**
  * Created by vourhey on 8/9/15.
  */
+// TODO checkBox 'K' is not visible on some screens
+// TODO generate customDeck only if there were changes on checkBoxes
 public class CardActivity extends Activity {
     private CheckBox[] colorsChecks;
     private CheckBox[] suitsChecks;
@@ -59,30 +63,40 @@ public class CardActivity extends Activity {
     public void shuffleDeck(View v) {
         boolean has_color = hasColor();
         boolean has_suit = hasSuit();
+        Log.d("shuffleDeck", String.valueOf(has_color) + " " + String.valueOf(has_suit));
 
         int i;
         ArrayList<Drawable> customDeck = new ArrayList<Drawable>();
 
         if(!has_color && !has_suit) {
-            // nothing is checked
-            // report an error
+            Toast.makeText(this, "Choose something first", Toast.LENGTH_SHORT).show();
+            return;
         } else if(has_color && !has_suit) {
             for(i = 0; i < 52; ++i) {
                 if(colorsChecks[i % 4].isChecked()) {
                     customDeck.add(cardIcons.getDrawable(i));
                 }
             }
-        } else if(!has_color && has_suit) {
-            for(i = 0; i < 52; ++i) {
-                if(suitsChecks[i % 13].isChecked()) {
-                    customDeck.add(cardIcons.getDrawable(i));
+        } else if(!has_color) {
+            for(i = 0; i < 13; ++i) {
+                if(suitsChecks[i].isChecked()) {
+                    customDeck.add(cardIcons.getDrawable(i * 4));
+                    customDeck.add(cardIcons.getDrawable(i * 4 + 1));
+                    customDeck.add(cardIcons.getDrawable(i * 4 + 2));
+                    customDeck.add(cardIcons.getDrawable(i * 4 + 3));
                 }
             }
         } else {
-            for(i = 0; i < 52; ++i) {
-                if(colorsChecks[i % 4].isChecked() &&
-                        suitsChecks[i % 13].isChecked()) {
-                    customDeck.add(cardIcons.getDrawable(i));
+            for(i = 0; i < 13; ++i) {
+                if(suitsChecks[i].isChecked()) {
+                    if(colorsChecks[0].isChecked())
+                        customDeck.add(cardIcons.getDrawable(i * 4));
+                    if(colorsChecks[1].isChecked())
+                        customDeck.add(cardIcons.getDrawable(i * 4 + 1));
+                    if(colorsChecks[2].isChecked())
+                        customDeck.add(cardIcons.getDrawable(i * 4 + 2));
+                    if(colorsChecks[3].isChecked())
+                        customDeck.add(cardIcons.getDrawable(i * 4 + 3));
                 }
             }
         }
