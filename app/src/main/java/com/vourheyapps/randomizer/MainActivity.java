@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
     }
 
     public void openDiceRollActivity(View v) {
-        Intent intent = new Intent(this, RpsActivity.class);
+        Intent intent = new Intent(this, DiceRollActivity.class);
         startActivity(intent);
     }
 

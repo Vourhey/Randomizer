@@ -29,9 +29,10 @@ public class TimeFragment extends CommonFragment {
             @Override
             public void onClick(View v) {
                 if(hour == -1) {
-                    return;     // there's no generated alarm
+                    return;     // there's no generated time
                 }
 
+                // TODO it doesn't work
                 Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
                 intent.putExtra(AlarmClock.EXTRA_HOUR, hour);
                 intent.putExtra(AlarmClock.EXTRA_MINUTES, minutes);
