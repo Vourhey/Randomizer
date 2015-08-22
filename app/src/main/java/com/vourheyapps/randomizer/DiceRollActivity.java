@@ -21,7 +21,6 @@ import java.util.Random;
  * Created by vourhey on 8/16/15.
  */
 public class DiceRollActivity extends Activity {
-    private Spinner numberOfDiceSpinner;
     private int numberOfDice;
     private Drawable sides[];
     private GridView gridView;
@@ -32,7 +31,7 @@ public class DiceRollActivity extends Activity {
         super.onCreate(si);
         setContentView(R.layout.diceroll_activity);
 
-        numberOfDiceSpinner = (Spinner) findViewById(R.id.numberOfDiceSpinner);
+        Spinner numberOfDiceSpinner = (Spinner) findViewById(R.id.numberOfDiceSpinner);
         List<Integer> spinnerArray = new ArrayList<Integer>();
         for(int i = 1; i < 9; ++i) {
             spinnerArray.add(i);

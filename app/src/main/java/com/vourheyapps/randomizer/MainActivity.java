@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
     }
 
     public void openCoinFlipActivity(View v) {
-        Intent intent = new Intent(this, RpsActivity.class);
+        Intent intent = new Intent(this, CoinFlipActivity.class);
         startActivity(intent);
     }
 
