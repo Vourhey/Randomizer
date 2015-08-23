@@ -10,14 +10,14 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="0.1"
-        android:hint="Name"/>
+        android:hint="@string/string_name"/>
 
     <Button
         android:id="@+id/createCustomListButton"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="0.1"
-        android:text="Create List"
+        android:text="@string/string_create_list"
         android:onClick="createListClick"/>
 
     <ListView
@@ -31,6 +31,6 @@
         android:layout_height="0dp"
         android:layout_weight="0.05"
         android:layout_gravity="center"
-        android:hint="Long tap to delete list"/>
+        android:hint="@string/string_long_tap_to_delete"/>
 
 </LinearLayout>

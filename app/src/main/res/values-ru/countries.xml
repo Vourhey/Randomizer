@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="string_countries_africa">
+        <item>Алжир</item>
+        <item>Ангола</item>
+        <item>Бенин</item>
+        <item>Ботсвана</item>
+        <item>Буркина-Фасо</item>
+        <item>Бурунди</item>
+        <item>Камерун</item>
+        <item>Кабо-Верде</item>
+        <item>Центрально-Африканская республика</item>
+        <item>Чад</item>
+        <item>Коморские острова</item>
+        <item>Республика Конго</item>
+        <item>Демократическая Республика Конго</item>
+        <item>Кот-д\'Ивуар</item>
+        <item>Джибути</item>
+        <item>Египет</item>
+        <item>Экваториальная Гвинея</item>
+        <item>Эритрея</item>
+        <item>Эфиопия</item>
+        <item>Габон</item>
+        <item>Гамбия</item>
+        <item>Гана</item>
+        <item>Гвинея</item>
+        <item>Гвинея-Бисау</item>
+        <item>Кения</item>
+        <item>Лесото</item>
+        <item>Либерия</item>
+        <item>Ливия</item>
+        <item>Мадагаскар</item>
+        <item>Малави</item>
+        <item>Мали</item>
+        <item>Мавритания</item>
+        <item>Маврикий</item>
+        <item>Майотта</item>
+        <item>Марокко</item>
+        <item>Мозамбик</item>
+        <item>Намибия</item>
+        <item>Нигер</item>
+        <item>Нигерия</item>
+        <item>Реюньон</item>
+        <item>Руанда</item>
+        <item>Святой Елены Остров</item>
+        <item>Сан-Томе и Принсипи</item>
+        <item>Сенегал</item>
+        <item>Сейшельские Острова</item>
+        <item>Сьерра-Леоне</item>
+        <item>Сомали</item>
+        <item>Южно-Африканская Республика</item>
+        <item>Южный Судан</item>
+        <item>Судан</item>
+        <item>Свазиленд</item>
+        <item>Танзания</item>
+        <item>Того</item>
+        <item>Тунис</item>
+        <item>Уганда</item>
+        <item>Западная Сахара</item>
+        <item>Замбия</item>
+        <item>Зимбабве</item>
+    </string-array>
+
+    <string-array name="string_countries_asia">
+        <item>Афганистан</item>
+        <item>Армения</item>
+        <item>Азербайджан</item>
+        <item>Бангладеш</item>
+        <item>Бутан</item>
+        <item>Бруней</item>
+        <item>Камбоджа</item>
+        <item>Китай</item>
+        <item>Грузия</item>
+        <item>Гонконг</item>
+        <item>Индия</item>
+        <item>Индонезия</item>
+        <item>Япония</item>
+        <item>Казахстан</item>
+        <item>Киргизия</item>
+        <item>Лаос</item>
+        <item>Макао (Аомынь)</item>
+        <item>Малайзия</item>
+        <item>Мальдивы</item>
+        <item>Монголия</item>
+        <item>Мьянма (Бирма)</item>
+        <item>Непал</item>
+        <item>КНДР</item>
+        <item>Пакистан</item>
+        <item>Филиппины</item>
+        <item>Сингапур</item>
+        <item>Южная Корея</item>
+        <item>Шри-Ланка</item>
+        <item>Тайвань</item>
+        <item>Таджикистан</item>
+        <item>Таиланд</item>
+        <item>Восточный Тимор</item>
+        <item>Туркменистан</item>
+        <item>Узбекистан</item>
+        <item>Вьетнам</item>
+    </string-array>
+
+    <string-array name="string_countries_central_america">
+        <item>Белиз</item>
+        <item>Коста-Рика</item>
+        <item>Сальвадор</item>
+        <item>Гватемала</item>
+        <item>Гондурас</item>
+        <item>Мексика</item>
+        <item>Никарагуа</item>
+        <item>Панама</item>
+    </string-array>
+
+    <string-array name="string_countries_eastern_europe">
+        <item>Албания</item>
+        <item>Андорра</item>
+        <item>Беларусь</item>
+        <item>Босния</item>
+        <item>Хорватия</item>
+        <item>Европейское объединение</item>
+        <item>Фарерские острова</item>
+        <item>Гибралтар</item>
+        <item>Гернси и Олдерни</item>
+        <item>Исландия</item>
+        <item>Джерси (остров)</item>
+        <item>Республика Косово</item>
+        <item>Лихтенштейн</item>
+        <item>Македония</item>
+        <item>Остров Мэн</item>
+        <item>Молдовия</item>
+        <item>Монако</item>
+        <item>Черногория</item>
+        <item>Норвегия</item>
+        <item>Россия</item>
+        <item>Сан-Морино</item>
+        <item>Сербия</item>
+        <item>Шпицберген и Ян-Майен</item>
+        <item>Швейцария</item>
+        <item>Турция</item>
+        <item>Украина</item>
+        <item>Ватикан</item>
+    </string-array>
+
+    <string-array name="string_countries_europe_union">
+        <item>Австрия</item>
+        <item>Бельгия</item>
+        <item>Болгария</item>
+        <item>Кипр</item>
+        <item>Чехия</item>
+        <item>Дания</item>
+        <item>Эстония</item>
+        <item>Финляндия</item>
+        <item>Франция</item>
+        <item>Германия</item>
+        <item>Греция</item>
+        <item>Венгрия</item>
+        <item>Ирландия</item>
+        <item>Италия</item>
+        <item>Латвия</item>
+        <item>Литва</item>
+        <item>Люксембург</item>
+        <item>Мальта</item>
+        <item>Нидерланды</item>
+        <item>Польша</item>
+        <item>Португалия </item>
+        <item>Румыния</item>
+        <item>Словакия</item>
+        <item>Словения</item>
+        <item>Испания</item>
+        <item>Швеция</item>
+        <item>Великобритания</item>
+    </string-array>
+    
+    <string-array name="string_countries_middle_east">
+        <item>Бахрейн</item>
+        <item>Ирак</item>
+        <item>Иран</item>
+        <item>Израиль</item>
+        <item>Иордания</item>
+        <item>Кувейт</item>
+        <item>Ливан</item>
+        <item>Оман</item>
+        <item>Палестина</item>
+        <item>Катар</item>
+        <item>Саудовская Аравия</item>
+        <item>Сирия</item>
+        <item>Объединеные Арабские Эмираты</item>
+        <item>Йемен</item>
+    </string-array>
+
+    <string-array name="string_countries_oceania">
+        <item>Австралия</item>
+        <item>Фиджи</item>
+        <item>Французская полинезия</item>
+        <item>Гуам</item>
+        <item>Кирибати</item>
+        <item>Маршаловы острова</item>
+        <item>Микронезия</item>
+        <item>Новая Каледония</item>
+        <item>Новая Зеландия</item>
+        <item>Папуа-Новая Гвинея</item>
+        <item>Samoa</item>
+        <item>Восточное (Американское) Самоа</item>
+        <item>Соломоновы Острова</item>
+        <item>Тонга</item>
+        <item>Вануату</item>
+    </string-array>
+
+    <string-array name="string_countries_north_america">
+        <item>Bermuda</item>
+        <item>Канада</item>
+        <item>Гренландия</item>
+        <item>Сен-Пьер и Микелон</item>
+        <item>США</item>
+    </string-array>
+
+    <string-array name="string_countries_south_america">
+        <item>Аргентина</item>
+        <item>Боливия</item>
+        <item>Бразилия</item>
+        <item>Чили</item>
+        <item>Колумбия</item>
+        <item>Эквадор</item>
+        <item>Фолклендские (Мальвинские) острова</item>
+        <item>Гвиана Франция</item>
+        <item>Гайана</item>
+        <item>Парагвай</item>
+        <item>Перу</item>
+        <item>Суринам</item>
+        <item>Уругвай</item>
+        <item>Венесуэла</item>
+    </string-array>
+
+    <string-array name="string_countries_the_caribbean">
+        <item>Ангуилла</item>
+        <item>Антигуа и Барбуда</item>
+        <item>Аруба</item>
+        <item>Bahamas</item>
+        <item>Барбадос</item>
+        <item>Бонэйр</item>
+        <item>Британские Виргинские острова</item>
+        <item>Острова Кайман</item>
+        <item>Куба</item>
+        <item>Кюрасао</item>
+        <item>Доминика</item>
+        <item>Доминиканская республика</item>
+        <item>Гренада </item>
+        <item>Гваделупа</item>
+        <item>Гаити</item>
+        <item>Ямайка</item>
+        <item>Мартиника</item>
+        <item>Монтсеррат</item>
+        <item>Пуэрто-Рико</item>
+        <item>Сен-Бартелеми</item>
+        <item>Сент-Китс и Невис</item>
+        <item>Сент-Люсия</item>
+        <item>Сен-Мартен (остров)</item>
+        <item>Сент-Винсент и Гренадины</item>
+        <item>Синт-Мартен</item>
+        <item>Тринидад и Тобаго</item>
+        <item>Тёркс и Кайкос</item>
+        <item>Виргинские острова</item>
+    </string-array>
+
+</resources>

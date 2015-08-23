@@ -9,12 +9,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:contentDescription="Coin"/>
+        android:contentDescription="@string/string_coin"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tap the Coin for Random Flips"
+        android:text="@string/string_tap_for_random_flips"
         android:textColor="#a7777777"
         android:layout_gravity="center"/>
 

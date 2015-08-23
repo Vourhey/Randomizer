@@ -5,6 +5,7 @@
     <string name="string_clear_history">Clear History</string>
 
     <!-- MainActivity -->
+
     <string name="string_list">List</string>
     <string name="string_letter">Letter</string>
     <string name="string_number">Number</string>
@@ -72,6 +73,30 @@
         <item>The Caribbean</item>
     </string-array>
 
+    <!-- CardActivity -->
+
+    <string name="string_shuffle_deck">Shuffle Deck</string>
+
+    <!-- CoinActivity -->
+
+    <string name="string_coin">Coin</string>
+    <string name="string_tap_for_random_flips">Tap the Coin for Random Flips</string>
+
+    <!-- ListActivity -->
+
+    <string name="string_name">Name</string>
+    <string name="string_create_list">Create List</string>
+
+    <!-- CustomListActivity -->
+
+    <string name="string_item">Item</string>
+    <string name="string_add_to_list">Add to List</string>
+    <string name="string_long_tap_to_delete">Long tap to delete</string>
+
+    <!-- DiceRollActivity -->
+
+    <string name="string_roll_dice">Roll Dice</string>
+
     <!-- YmnActivity -->
 
     <string-array name="string_ymn_answers">
@@ -80,7 +105,12 @@
         <item>No</item>
     </string-array>
 
+    <string name="string_ask_question">Ask Question (Optional)</string>
+
     <!-- PasswordActivity -->
+
+    <string name="string_length_of_password">Length of password</string>
+    <string name="string_custom_set">Custom set</string>
 
     <string-array name="string_password_spinner">
         <item>Alphanumeric</item>
@@ -88,6 +118,9 @@
         <item>Numeric Only</item>
         <item>Letters Only</item>
     </string-array>
+
+    <!-- TimeActivity -->
+    <string name="string_set_alarm">Set Alarm</string>
 
     <!-- RpsActivity -->
     <string name="string_rps_you">You</string>

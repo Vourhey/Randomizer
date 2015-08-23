@@ -14,4 +14,74 @@
     <string name="string_country">Страна</string>
     <string name="string_rps">КНБ</string>
     <string name="string_ymn">Да/Нет</string>
+    <string name="string_add_to_list">Добавить в список</string>
+    <string name="string_ask_question">Задай вопрос (Не обязательно)</string>
+    <string name="string_clear_history">Очистить историю</string>
+    <string name="string_coin">Монета</string>
+    <string name="string_create_list">Создать список</string>
+    <string name="string_custom_set">Свой набор</string>
+    <string name="string_generate">Получить</string>
+    <string name="string_item">Элемент</string>
+    <string name="string_length_of_password">Длина пароля</string>
+    <string name="string_long_tap_to_delete">Долгое нажатие для удаления</string>
+    <string name="string_name">Название</string>
+    <string name="string_roll_dice">Бросить кубик</string>
+    <string name="string_rps_clear_score">Сбросить счет</string>
+    <string name="string_rps_computer">Компьютер</string>
+    <string name="string_rps_draw">Ничья</string>
+    <string name="string_rps_lose">Проиграл</string>
+    <string name="string_rps_win">Выиграл</string>
+    <string name="string_rps_you">Вы</string>
+    <string name="string_set_alarm">Установить будильник</string>
+    <string name="string_shuffle_deck">Перемешать колоду</string>
+    <string name="string_tap_for_random_flips">Нажмите на монету, чтобы подбросить</string>
+
+    <string-array name="string_array_letter">
+        <item>Все</item>
+        <item>Гласные</item>
+        <item>Согласные</item>
+    </string-array>
+    <string-array name="string_array_number">
+        <item>Все</item>
+        <item>Четные</item>
+        <item>Нечетные</item>
+    </string-array>
+    <string-array name="string_months">
+        <item>Январь</item>
+        <item>Февраль</item>
+        <item>Март</item>
+        <item>Апрель</item>
+        <item>Май</item>
+        <item>Июнь</item>
+        <item>Июль</item>
+        <item>Август</item>
+        <item>Сентябрь</item>
+        <item>Октябрь</item>
+        <item>Ноябрь</item>
+        <item>Декабрь</item>
+    </string-array>
+    <string-array name="string_countries_spinner">
+        <item>Все</item>
+        <item>Африка</item>
+        <item>Азия</item>
+        <item>Центральная Америка</item>
+        <item>Восточная Европа</item>
+        <item>Европейское объединение</item>
+        <item>Средний восток</item>
+        <item>Океания</item>
+        <item>Северная Америка</item>
+        <item>Южная Америка</item>
+        <item>Карибы</item>
+    </string-array>
+    <string-array name="string_ymn_answers">
+        <item>Да</item>
+        <item>Возможно</item>
+        <item>Нет</item>
+    </string-array>
+    <string-array name="string_password_spinner">
+        <item>Буквы и цифры</item>
+        <item>Буквы, цифры и специальные символы</item>
+        <item>Только цифры</item>
+        <item>Только буквы</item>
+    </string-array>
 </resources>

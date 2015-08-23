@@ -8,6 +8,6 @@
         android:id="@+id/setAlarmButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Set Alarm"/>
+        android:text="@string/string_set_alarm"/>
 
 </LinearLayout>
