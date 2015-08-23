@@ -1,0 +1,22 @@
+#Randomizer
+
+It's a very simple app for Android.
+Its aim is to get random anything for you.
+
+Now the app includes few rooms for different random things:
+
+* Letter
+* Number
+* Dice Roll
+* Color
+* Coin Flip
+* Image - gives images from you gallery
+* Password
+* Card
+* Time
+* Month
+* Country
+* RPS - an old simple game
+* Yes/No
+
+And It has a "List" option where you can define your own items.

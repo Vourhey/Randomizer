@@ -42,6 +42,10 @@ public class HistoryList {
         lv.setSelection(arrayAdapter.getCount() - 1);
     }
 
+    public ArrayList<String> getArray() {
+        return history;
+    }
+
     public void clear() {
         history.clear();
         arrayAdapter.notifyDataSetChanged();

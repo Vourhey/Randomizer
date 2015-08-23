@@ -27,14 +27,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add to List"/>
+            android:text="Add to List"
+            android:onClick="addElement"/>
 
         <Button
             android:id="@+id/generateFromCustomButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/string_generate"/>
+            android:text="@string/string_generate"
+            android:onClick="chooseElement"/>
 
     </LinearLayout>
 
@@ -42,5 +44,11 @@
         android:id="@+id/customItemsList"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:text="Long tap to delete"/>
 
 </LinearLayout>
