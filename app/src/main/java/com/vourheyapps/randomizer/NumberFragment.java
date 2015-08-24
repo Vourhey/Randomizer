@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -32,12 +33,38 @@ public class NumberFragment extends CommonFragment {
     }
 
     public String generate() {
-        int min = Integer.parseInt(minNumberText.getText().toString());
-        int max = Integer.parseInt(maxNumberText.getText().toString());
+        String minStr = minNumberText.getText().toString();
+        String maxStr = maxNumberText.getText().toString();
+        if(minStr.isEmpty() || maxStr.isEmpty()) {
+            Toast.makeText(getActivity(),
+                    "You must define both min and max number", Toast.LENGTH_SHORT).show();
+            return "---";
+        }
 
-        // TODO use numberSpinner
+        int min = Integer.parseInt(minStr);
+        int max = Integer.parseInt(maxStr);
+
+        if(min > max) {
+            Toast.makeText(getActivity(), "Min and max are switched", Toast.LENGTH_SHORT).show();
+            // switch min and max
+            minNumberText.setText(String.valueOf(max));
+            maxNumberText.setText(String.valueOf(min));
+
+            int tmp = min;
+            min = max;
+            max = tmp;
+        }
 
         int rand = random.nextInt(max - min) + min;
+        int pos = numberSpinner.getSelectedItemPosition();
+        switch (pos) {
+        case 1:
+            rand = random.nextInt((max - min)/2) * 2 + min;
+            break;
+        case 2:
+            rand = random.nextInt((max - min)/2) * 2 + min + 1;
+            break;
+        }
         return String.valueOf(rand);
     }
 }

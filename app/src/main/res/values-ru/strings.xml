@@ -84,4 +84,6 @@
         <item>Только цифры</item>
         <item>Только буквы</item>
     </string-array>
+    <string name="string_number_maximum">Максимум</string>
+    <string name="string_number_minimum">Минимум</string>
 </resources>

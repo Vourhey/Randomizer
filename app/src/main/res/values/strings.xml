@@ -34,6 +34,9 @@
 
     <!-- NumberActivity -->
 
+    <string name="string_number_minimum">Minimum</string>
+    <string name="string_number_maximum">Maximum</string>
+
     <string-array name="string_array_number">
         <item>All</item>
         <item>Even Numbers</item>
