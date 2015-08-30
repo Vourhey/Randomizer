@@ -28,6 +28,6 @@ public class ColorFragment extends CommonFragment {
         color = 0xFF000000 | color;
         layout.setBackgroundColor(color);
         layout.invalidate();
-        return ("#" + Integer.toHexString(color).substring(2));
+        return ("#" + Integer.toHexString(color).substring(2).toUpperCase());
     }
 }

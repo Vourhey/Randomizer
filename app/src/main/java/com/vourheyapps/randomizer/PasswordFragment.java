@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -36,8 +37,13 @@ public class PasswordFragment extends CommonFragment {
         return r;
     }
 
-    public String generate() {
-        length = Integer.parseInt(lengthText.getText().toString());
+    public String generate() throws RuntimeException {
+        String lengthStr = lengthText.getText().toString();
+        if(lengthStr.isEmpty()) {
+            Toast.makeText(getActivity(), "You should set the length of password", Toast.LENGTH_SHORT).show();
+            throw new RuntimeException();
+        }
+        length = Integer.parseInt(lengthStr);
         String password = "";
         String alphabet = "";
 

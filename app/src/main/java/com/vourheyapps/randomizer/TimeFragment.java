@@ -32,7 +32,6 @@ public class TimeFragment extends CommonFragment {
                     return;     // there's no generated time
                 }
 
-                // TODO it doesn't work
                 Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
                 intent.putExtra(AlarmClock.EXTRA_HOUR, hour);
                 intent.putExtra(AlarmClock.EXTRA_MINUTES, minutes);
@@ -48,6 +47,7 @@ public class TimeFragment extends CommonFragment {
     public String generate() {
         hour = random.nextInt(24);
         minutes = random.nextInt(60);
-        return (hour + ":" + minutes);
+        String time = (hour < 10 ? "0" : "") + hour + ":" + (minutes < 10 ? "0" : "") + minutes;
+        return time;
     }
 }

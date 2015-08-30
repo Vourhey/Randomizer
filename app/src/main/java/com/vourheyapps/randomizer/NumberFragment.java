@@ -32,13 +32,13 @@ public class NumberFragment extends CommonFragment {
         return r;
     }
 
-    public String generate() {
+    public String generate() throws RuntimeException{
         String minStr = minNumberText.getText().toString();
         String maxStr = maxNumberText.getText().toString();
         if(minStr.isEmpty() || maxStr.isEmpty()) {
             Toast.makeText(getActivity(),
                     "You must define both min and max number", Toast.LENGTH_SHORT).show();
-            return "---";
+            throw new RuntimeException();
         }
 
         int min = Integer.parseInt(minStr);

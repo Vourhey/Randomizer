@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -63,9 +64,13 @@ public class CommonActivity extends Activity {
     }
 
     public void generate(View v) {
-        String item = currentFragment.generate();
-        randomTextView.setText(item);
-        historyList.addItem(item);
+        try {
+            String item = currentFragment.generate();
+            randomTextView.setText(item);
+            historyList.addItem(item);
+        } catch (Exception e) {
+            Log.i("Exception", "undefined exception", e);
+        }
     }
 
     public void clearHistory(View v) {

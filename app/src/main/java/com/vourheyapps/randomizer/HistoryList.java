@@ -1,5 +1,7 @@
 package com.vourheyapps.randomizer;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,7 +33,10 @@ public class HistoryList {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String textToClip = parent.getAdapter().getItem(position).toString();
 
-                Toast.makeText(context, textToClip, Toast.LENGTH_SHORT).show();
+                ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("com.vourheyapps.randomizer", textToClip);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(context, "Copied to clipboard", Toast.LENGTH_SHORT).show();
             }
         });
     }
