@@ -18,7 +18,7 @@ import java.util.Set;
  * Created by vourhey on 8/9/15.
  */
 public class CustomListActivity extends Activity {
-    private final String ITEMS_ID = "com.vourheyapps.randomizer.ITEMS_ID";
+    public final static String ITEMS_ID = "com.vourheyapps.randomizer.ITEMS_ID";
     private SharedPreferences pref;
     private Random random;
     private TextView showCustomElementText;
@@ -35,7 +35,7 @@ public class CustomListActivity extends Activity {
         customListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                historyList.getArray().remove(i);
+                historyList.remove(i);
                 return true;
             }
         });
@@ -64,7 +64,7 @@ public class CustomListActivity extends Activity {
         // write items to preference
         SharedPreferences.Editor editor = pref.edit();
 
-        HashSet<String> hashSet = new HashSet<String>(historyList.getArray());
+        HashSet<String> hashSet = new HashSet<String>(historyList.getItems());
         editor.putStringSet(id, hashSet);
 
         editor.apply();
@@ -72,11 +72,15 @@ public class CustomListActivity extends Activity {
 
     public void addElement(View v) {
         String item = elementEdit.getText().toString();
+        if(item.isEmpty()) {
+            return;
+        }
+        elementEdit.setText("");
         historyList.addItem(item);
     }
 
     public void chooseElement(View v) {
-        int i = random.nextInt(historyList.getArray().size());
-        showCustomElementText.setText(historyList.getArray().get(i));
+        int i = random.nextInt(historyList.size());
+        showCustomElementText.setText(historyList.getItem(i));
     }
 }

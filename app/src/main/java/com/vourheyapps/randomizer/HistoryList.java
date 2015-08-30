@@ -47,8 +47,21 @@ public class HistoryList {
         lv.setSelection(arrayAdapter.getCount() - 1);
     }
 
-    public ArrayList<String> getArray() {
+    public int size() {
+        return history.size();
+    }
+
+    public String getItem(int i) {
+        return history.get(i);
+    }
+
+    public ArrayList<String> getItems() {
         return history;
+    }
+
+    public void remove(int i) {
+        history.remove(i);
+        arrayAdapter.notifyDataSetChanged();
     }
 
     public void clear() {

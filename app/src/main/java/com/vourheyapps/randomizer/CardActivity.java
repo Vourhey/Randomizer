@@ -2,8 +2,12 @@ package com.vourheyapps.randomizer;
 
 import android.app.Activity;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -58,6 +62,16 @@ public class CardActivity extends Activity {
         suitsChecks[12] = (CheckBox) findViewById(R.id.cardKCheckBox);
 
         cardIcons = getResources().obtainTypedArray(R.array.card_array);
+
+        // Hearts and Diamonds are red
+        final ForegroundColorSpan fcs = new ForegroundColorSpan(Color.rgb(255, 0, 0));
+        SpannableStringBuilder ssb = new SpannableStringBuilder(colorsChecks[2].getText());
+
+        ssb.setSpan(fcs, 0, 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        colorsChecks[2].setText(ssb);
+        ssb = new SpannableStringBuilder(colorsChecks[3].getText());
+        ssb.setSpan(fcs, 0, 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        colorsChecks[3].setText(ssb);
     }
 
     public void shuffleDeck(View v) {
