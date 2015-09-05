@@ -84,6 +84,10 @@
 
     <string name="string_coin">Coin</string>
     <string name="string_tap_for_random_flips">Tap the Coin for Random Flips</string>
+    <string-array name="string_heads_or_tails">
+        <item>Heads</item>
+        <item>Tails</item>
+    </string-array>
 
     <!-- ListActivity -->
 

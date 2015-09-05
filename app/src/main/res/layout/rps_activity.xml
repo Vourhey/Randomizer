@@ -18,19 +18,11 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            style="@style/CenteredTextView"
             android:text="@string/string_rps_you"/>
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            style="@style/CenteredTextView"
             android:text="@string/string_rps_computer"/>
 
     </LinearLayout>
@@ -61,20 +53,12 @@
 
         <TextView
             android:id="@+id/playersScoreRPS"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            style="@style/CenteredTextView"
             android:text="0"/>
 
         <TextView
             android:id="@+id/computersScoreRPS"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            style="@style/CenteredTextView"
             android:text="0"/>
 
     </LinearLayout>

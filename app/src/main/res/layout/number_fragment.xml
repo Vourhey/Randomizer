@@ -9,20 +9,12 @@
         android:orientation="horizontal">
         <EditText
             android:id="@+id/minimumNumber"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="0.5"
-            android:inputType="number"
-            android:gravity="center"
+            style="@style/CenteredEditText"
             android:hint="@string/string_number_minimum"
             android:text="0"/>
         <EditText
             android:id="@+id/maximumNumber"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="0.5"
-            android:inputType="number"
-            android:gravity="center"
+            style="@style/CenteredEditText"
             android:hint="@string/string_number_maximum"
             android:text="100"/>
     </LinearLayout>

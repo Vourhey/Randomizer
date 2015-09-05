@@ -19,6 +19,7 @@
         android:layout_gravity="center"/>
 
     <TextView
+        android:id="@+id/coinHeadOrTailsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
