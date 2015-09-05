@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -33,7 +34,7 @@ public class DiceRollActivity extends Activity {
 
         Spinner numberOfDiceSpinner = (Spinner) findViewById(R.id.numberOfDiceSpinner);
         List<Integer> spinnerArray = new ArrayList<Integer>();
-        for(int i = 1; i < 9; ++i) {
+        for(int i = 1; i < 10; ++i) {
             spinnerArray.add(i);
         }
         ArrayAdapter<Integer> spinnerAdapter = new ArrayAdapter<Integer>(this,
@@ -109,8 +110,10 @@ public class DiceRollActivity extends Activity {
             ImageView imageView;
             if (convertView == null) {
                 // if it's not recycled, initialize some attributes
+                int width = (int)getResources().getDimension(R.dimen.dice_width);
+                Log.i("Dice width", "" + width);
                 imageView = new ImageView(mContext);
-                imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+                imageView.setLayoutParams(new GridView.LayoutParams(width,width));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 imageView.setPadding(8, 8, 8, 8);
             } else {
