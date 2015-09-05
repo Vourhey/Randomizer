@@ -8,19 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.util.Random;
-
 /**
  * Created by vourhey on 8/4/15.
  */
 public class TimeFragment extends CommonFragment {
-    private Random random;
     private int hour;
     private int minutes;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        random = new Random();
         hour = minutes = -1;
 
         View r = inflater.inflate(R.layout.time_fragment, container, false);
@@ -45,8 +41,8 @@ public class TimeFragment extends CommonFragment {
     }
 
     public String generate() {
-        hour = random.nextInt(24);
-        minutes = random.nextInt(60);
+        hour = MainActivity.random.nextInt(24);
+        minutes = MainActivity.random.nextInt(60);
         String time = (hour < 10 ? "0" : "") + hour + ":" + (minutes < 10 ? "0" : "") + minutes;
         return time;
     }

@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import java.util.Random;
-
 /**
  * Created by vourhey on 8/16/15.
  */
@@ -27,8 +25,7 @@ public class CoinFlipActivity extends Activity {
         coinImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Random r = new Random();
-                coinImage.setImageDrawable(coin[r.nextInt(2)]);
+                coinImage.setImageDrawable(coin[MainActivity.random.nextInt(2)]);
             }
         });
     }

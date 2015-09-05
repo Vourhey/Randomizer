@@ -16,7 +16,6 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by vourhey on 8/16/15.
@@ -26,7 +25,6 @@ public class DiceRollActivity extends Activity {
     private Drawable sides[];
     private GridView gridView;
     private ImageAdapter adapter;
-    private Random random;
 
     protected void onCreate(Bundle si) {
         super.onCreate(si);
@@ -65,15 +63,13 @@ public class DiceRollActivity extends Activity {
         sides[3] = getResources().getDrawable(R.drawable.dice4);
         sides[4] = getResources().getDrawable(R.drawable.dice5);
         sides[5] = getResources().getDrawable(R.drawable.dice6);
-
-        random = new Random();
     }
 
     public void rollDice(View v) {
         ArrayList<Integer> dices = new ArrayList<Integer>();
 
         for(int i = 0; i < numberOfDice; ++i) {
-            dices.add(random.nextInt(6));
+            dices.add(MainActivity.random.nextInt(6));
         }
 
         adapter.setDices(dices);

@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Created by vourhey on 8/9/15.
@@ -20,7 +19,6 @@ import java.util.Random;
 public class ImageActivity extends Activity {
     private ArrayList<String> allImagesPath;
     private ImageView imageView;
-    private Random random;
 
     @Override
     protected void onCreate(Bundle si) {
@@ -29,7 +27,6 @@ public class ImageActivity extends Activity {
 
         allImagesPath = getAllImagesPath();
         imageView = (ImageView) findViewById(R.id.showRandomImage);
-        random = new Random();
     }
 
     private ArrayList<String> getAllImagesPath() {
@@ -68,7 +65,7 @@ public class ImageActivity extends Activity {
     }
 
     public void nextImage(View v) {
-        int i = random.nextInt(allImagesPath.size());
+        int i = MainActivity.random.nextInt(allImagesPath.size());
 
         imageView.setImageBitmap(BitmapFactory.decodeFile(allImagesPath.get(i)));
         imageView.invalidate();

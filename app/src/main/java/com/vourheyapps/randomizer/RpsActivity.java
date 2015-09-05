@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Random;
-
 /**
  * Created by vourhey on 8/9/15.
  */
@@ -21,7 +19,6 @@ public class RpsActivity extends Activity {
     private Drawable[] images;
     private int currentIcon;
     private int pScore, cScore;
-    private Random random;
 
     @Override
     protected void onCreate(Bundle si) {
@@ -40,8 +37,6 @@ public class RpsActivity extends Activity {
         images[2] = getResources().getDrawable(R.drawable.scissors);
         currentIcon = 1;
         pScore = cScore = 0;
-
-        random = new Random();
     }
 
     public void changeRPSIcon(View v) {
@@ -50,7 +45,7 @@ public class RpsActivity extends Activity {
     }
 
     public void generateRPS(View v) {
-        int computersIcon = random.nextInt(3);
+        int computersIcon = MainActivity.random.nextInt(3);
 
         computersImage.setImageDrawable(images[computersIcon]);
         if((computersIcon == 0 && currentIcon == 2) ||

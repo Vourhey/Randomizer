@@ -16,7 +16,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Created by vourhey on 8/9/15.
@@ -29,7 +28,6 @@ public class CardActivity extends Activity {
     private ImageView showCardView;
     private HistoryList historyList;
     private TypedArray cardIcons;
-    private Random random;
 
     @Override
     protected void onCreate(Bundle si) {
@@ -37,7 +35,6 @@ public class CardActivity extends Activity {
         setContentView(R.layout.card_activity);
 
         historyList = new HistoryList(this, (ListView)findViewById(R.id.cardHistoryListView));
-        random = new Random();
         showCardView = (ImageView) findViewById(R.id.showCardImageView);
 
         colorsChecks = new CheckBox[4];
@@ -115,7 +112,7 @@ public class CardActivity extends Activity {
             }
         }
 
-        int card = random.nextInt(customDeck.size());
+        int card = MainActivity.random.nextInt(customDeck.size());
         showCardView.setImageDrawable(customDeck.get(card));
         showCardView.invalidate();
     }

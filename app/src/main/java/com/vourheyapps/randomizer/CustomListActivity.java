@@ -11,7 +11,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 /**
@@ -20,7 +19,6 @@ import java.util.Set;
 public class CustomListActivity extends Activity {
     public final static String ITEMS_ID = "com.vourheyapps.randomizer.ITEMS_ID";
     private SharedPreferences pref;
-    private Random random;
     private TextView showCustomElementText;
     private EditText elementEdit;
     private HistoryList historyList;
@@ -43,7 +41,6 @@ public class CustomListActivity extends Activity {
         showCustomElementText = (TextView) findViewById(R.id.showCustomItemText);
         elementEdit = (EditText) findViewById(R.id.itemToAddEdit);
 
-        random = new Random();
         historyList = new HistoryList(this, customListView);
 
         Intent intent = getIntent();
@@ -80,7 +77,7 @@ public class CustomListActivity extends Activity {
     }
 
     public void chooseElement(View v) {
-        int i = random.nextInt(historyList.size());
+        int i = MainActivity.random.nextInt(historyList.size());
         showCustomElementText.setText(historyList.getItem(i));
     }
 }

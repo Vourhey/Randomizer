@@ -8,8 +8,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.util.Random;
-
 /**
  * Created by vourhey on 8/4/15.
  */
@@ -18,7 +16,6 @@ public class PasswordFragment extends CommonFragment {
     private EditText lengthText;
     private EditText customText;
     private int length;
-    private Random random;
     private String numbers = "0123456789";
     private String letters = "abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ";
     private String specialChars = "@%+\\/\'!#$^?:.(){}[]~-_";
@@ -32,7 +29,6 @@ public class PasswordFragment extends CommonFragment {
         lengthText = (EditText) r.findViewById(R.id.passwordLengthEdit);
         length = 8;
         lengthText.setText(String.valueOf(length));
-        random = new Random();
 
         return r;
     }
@@ -68,7 +64,7 @@ public class PasswordFragment extends CommonFragment {
         }
 
         for(int i = 0; i < length; ++i) {
-            char c = alphabet.charAt(random.nextInt(alphabet.length()));
+            char c = alphabet.charAt(MainActivity.random.nextInt(alphabet.length()));
             password += c;
         }
 

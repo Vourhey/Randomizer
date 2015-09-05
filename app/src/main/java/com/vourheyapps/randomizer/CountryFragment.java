@@ -8,13 +8,11 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 
 /**
  * Created by vourhey on 8/4/15.
  */
 public class CountryFragment extends CommonFragment {
-    private Random random;
     private ArrayList<String> africaArray,
                     asiaArray,
                     centralAmericaArray,
@@ -29,7 +27,6 @@ public class CountryFragment extends CommonFragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        random = new Random();
         africaArray = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.string_countries_africa)));
         asiaArray = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.string_countries_asia)));
         centralAmericaArray = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.string_countries_central_america)));
@@ -95,6 +92,6 @@ public class CountryFragment extends CommonFragment {
             break;
         }
 
-        return s.get(random.nextInt(s.size()));
+        return s.get(MainActivity.random.nextInt(s.size()));
     }
 }

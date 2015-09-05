@@ -8,8 +8,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.util.Random;
-
 /**
  * Created by vourhey on 8/4/15.
  */
@@ -17,7 +15,6 @@ public class NumberFragment extends CommonFragment {
     private EditText minNumberText;
     private EditText maxNumberText;
     private Spinner numberSpinner;
-    private Random random;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,7 +24,6 @@ public class NumberFragment extends CommonFragment {
         minNumberText = (EditText) r.findViewById(R.id.minimumNumber);
         maxNumberText = (EditText) r.findViewById(R.id.maximumNumber);
         numberSpinner = (Spinner) r.findViewById(R.id.numberSpinner);
-        random = new Random();
 
         return r;
     }
@@ -55,14 +51,14 @@ public class NumberFragment extends CommonFragment {
             max = tmp;
         }
 
-        int rand = random.nextInt(max - min) + min;
+        int rand = MainActivity.random.nextInt(max - min) + min;
         int pos = numberSpinner.getSelectedItemPosition();
         switch (pos) {
         case 1:
-            rand = random.nextInt((max - min)/2) * 2 + min;
+            rand = MainActivity.random.nextInt((max - min)/2) * 2 + min;
             break;
         case 2:
-            rand = random.nextInt((max - min)/2) * 2 + min + 1;
+            rand = MainActivity.random.nextInt((max - min)/2) * 2 + min + 1;
             break;
         }
         return String.valueOf(rand);

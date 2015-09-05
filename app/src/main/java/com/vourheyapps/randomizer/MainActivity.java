@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.Random;
+
 /**
  * Created by vourhey on 8/1/15.
  */
 public class MainActivity extends Activity {
     public final static String VIEWID_MESSAGE = "com.vourheyapps.randomizer.VIEWID";
+    public final static Random random = new Random();
 
     @Override
     protected void onCreate(Bundle si) {
