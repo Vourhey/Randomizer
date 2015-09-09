@@ -48,17 +48,16 @@ public class RpsActivity extends Activity {
         int computersIcon = MainActivity.random.nextInt(3);
 
         computersImage.setImageDrawable(images[computersIcon]);
-        if((computersIcon == 0 && currentIcon == 2) ||
-                (computersIcon > currentIcon)) {
+        if((currentIcon + 1) % 3 == computersIcon) {
             cScore++;
             computersScore.setText(String.valueOf(cScore));
             headText.setText(R.string.string_rps_lose);
-        } else if(computersIcon == currentIcon) {
-            headText.setText(R.string.string_rps_draw);
-        } else {
+        } else if((computersIcon + 1) % 3 == currentIcon) {
             pScore++;
             playersScore.setText(String.valueOf(pScore));
             headText.setText(R.string.string_rps_win);
+        } else {
+            headText.setText(R.string.string_rps_draw);
         }
     }
 
