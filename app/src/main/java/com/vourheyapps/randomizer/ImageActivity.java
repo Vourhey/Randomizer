@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -61,10 +62,12 @@ public class ImageActivity extends Activity {
             } while (cur.moveToNext());
         }
 
+        Log.i("Image paths size", "" + paths.size());
         return paths;
     }
 
     public void nextImage(View v) {
+        Log.i("Image", "" + allImagesPath.size());
         int i = MainActivity.random.nextInt(allImagesPath.size());
 
         imageView.setImageBitmap(BitmapFactory.decodeFile(allImagesPath.get(i)));

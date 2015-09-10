@@ -16,6 +16,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by vourhey on 8/9/15.
@@ -28,6 +30,8 @@ public class CardActivity extends Activity {
     private ImageView showCardView;
     private HistoryList historyList;
     private TypedArray cardIcons;
+    private String colorsString = "\u2663\u2660\u2665\u2666"; // ♣♠♥♦
+    private String suitsString = "A234567890JQK";
 
     @Override
     protected void onCreate(Bundle si) {
@@ -71,13 +75,15 @@ public class CardActivity extends Activity {
         colorsChecks[3].setText(ssb);
     }
 
+    // split this method
     public void shuffleDeck(View v) {
         boolean has_color = hasColor();
         boolean has_suit = hasSuit();
         Log.d("shuffleDeck", String.valueOf(has_color) + " " + String.valueOf(has_suit));
 
         int i;
-        ArrayList<Drawable> customDeck = new ArrayList<Drawable>();
+        String s;
+        HashMap<Drawable, String> customDeck = new HashMap<Drawable, String>();
 
         if(!has_color && !has_suit) {
             Toast.makeText(this, "Choose something first", Toast.LENGTH_SHORT).show();
@@ -85,36 +91,56 @@ public class CardActivity extends Activity {
         } else if(has_color && !has_suit) {
             for(i = 0; i < 52; ++i) {
                 if(colorsChecks[i % 4].isChecked()) {
-                    customDeck.add(cardIcons.getDrawable(i));
+                    s = "" + colorsString.charAt(i%4) + (i % 13 == 10 ? "10" : suitsString.charAt(i % 13));
+                    customDeck.put(cardIcons.getDrawable(i), s);
                 }
             }
         } else if(!has_color) {
             for(i = 0; i < 13; ++i) {
                 if(suitsChecks[i].isChecked()) {
-                    customDeck.add(cardIcons.getDrawable(i * 4));
-                    customDeck.add(cardIcons.getDrawable(i * 4 + 1));
-                    customDeck.add(cardIcons.getDrawable(i * 4 + 2));
-                    customDeck.add(cardIcons.getDrawable(i * 4 + 3));
+                    String as = "" + (i % 13 == 10 ? "10" : suitsString.charAt(i % 13));
+                    s = "" + colorsString.charAt(0) + as;
+                    customDeck.put(cardIcons.getDrawable(i * 4), s);
+                    s = "" + colorsString.charAt(1) + as;
+                    customDeck.put(cardIcons.getDrawable(i * 4 + 1), s);
+                    s = "" + colorsString.charAt(2) + as;
+                    customDeck.put(cardIcons.getDrawable(i * 4 + 2), s);
+                    s = "" + colorsString.charAt(3) + as;
+                    customDeck.put(cardIcons.getDrawable(i * 4 + 3), s);
                 }
             }
         } else {
             for(i = 0; i < 13; ++i) {
                 if(suitsChecks[i].isChecked()) {
-                    if(colorsChecks[0].isChecked())
-                        customDeck.add(cardIcons.getDrawable(i * 4));
-                    if(colorsChecks[1].isChecked())
-                        customDeck.add(cardIcons.getDrawable(i * 4 + 1));
-                    if(colorsChecks[2].isChecked())
-                        customDeck.add(cardIcons.getDrawable(i * 4 + 2));
-                    if(colorsChecks[3].isChecked())
-                        customDeck.add(cardIcons.getDrawable(i * 4 + 3));
+                    s = "" + (i % 13 == 10 ? "10" : suitsString.charAt(i % 13));
+                    if(colorsChecks[0].isChecked()) {
+                        s = colorsString.charAt(0) + s;
+                        customDeck.put(cardIcons.getDrawable(i * 4), s);
+                    }
+                    if(colorsChecks[1].isChecked()) {
+                        s = colorsString.charAt(1) + s;
+                        customDeck.put(cardIcons.getDrawable(i * 4 + 1), s);
+                    }
+                    if(colorsChecks[2].isChecked()) {
+                        s = colorsString.charAt(2) + s;
+                        customDeck.put(cardIcons.getDrawable(i * 4 + 2), s);
+                    }
+                    if(colorsChecks[3].isChecked()) {
+                        s = colorsString.charAt(3) + s;
+                        customDeck.put(cardIcons.getDrawable(i * 4 + 3), s);
+                    }
                 }
             }
         }
 
+        // maybe I'll die for this code
         int card = MainActivity.random.nextInt(customDeck.size());
-        showCardView.setImageDrawable(customDeck.get(card));
+        ArrayList<Map.Entry<Drawable,String>> entries =
+                new ArrayList<Map.Entry<Drawable, String>>(customDeck.entrySet());
+
+        showCardView.setImageDrawable(entries.get(card).getKey());
         showCardView.invalidate();
+        historyList.addItem(entries.get(card).getValue());
     }
 
     private boolean hasColor() {

@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:weightSum="1">
+              android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/nameOfCustomList"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
         android:hint="@string/string_name"/>
 
     <Button
         android:id="@+id/createCustomListButton"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameOfCustomList"
         android:text="@string/string_create_list"
         android:onClick="createListClick"/>
 
     <ListView
         android:id="@+id/customLists"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.75"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/createCustomListButton"
+        android:layout_above="@+id/longTapToDeleteText"/>
     
     <TextView
+        android:id="@+id/longTapToDeleteText"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="0.05"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:hint="@string/string_long_tap_to_delete"/>
 
-</LinearLayout>
+</RelativeLayout>

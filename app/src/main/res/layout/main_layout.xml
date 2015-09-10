@@ -3,133 +3,141 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <ScrollView
         android:layout_height="fill_parent"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:layout_margin="10dp">
-
-        <Button
-            android:id="@+id/listButton"
+        android:layout_width="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_list"
-            android:drawableStart="@drawable/list"
-            android:onClick="openListActivity" />
+            android:layout_height="fill_parent">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_margin="10dp">
 
-        <Button
-            android:id="@+id/numberButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_number"
-            android:drawableStart="@drawable/number"
-            android:onClick="openActivity" />
+                <Button
+                    android:id="@+id/listButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_list"
+                    android:drawableStart="@drawable/list"
+                    android:onClick="openListActivity" />
 
-        <Button
-            android:id="@+id/colorButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_color"
-            android:drawableStart="@drawable/color"
-            android:onClick="openActivity" />
-        <Button
-            android:id="@+id/imageButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_image"
-            android:drawableStart="@drawable/image"
-            android:onClick="openImageActivity"/>
+                <Button
+                    android:id="@+id/numberButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_number"
+                    android:drawableStart="@drawable/number"
+                    android:onClick="openActivity" />
 
-        <Button
-            android:id="@+id/cardButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_card"
-            android:drawableStart="@drawable/card"
-            android:onClick="openCardActivity"/>
+                <Button
+                    android:id="@+id/colorButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_color"
+                    android:drawableStart="@drawable/color"
+                    android:onClick="openActivity" />
+                <Button
+                    android:id="@+id/imageButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_image"
+                    android:drawableStart="@drawable/image"
+                    android:onClick="openImageActivity"/>
 
-        <Button
-            android:id="@+id/monthButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_month"
-            android:drawableStart="@drawable/month"
-            android:onClick="openActivity"/>
+                <Button
+                    android:id="@+id/cardButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_card"
+                    android:drawableStart="@drawable/card"
+                    android:onClick="openCardActivity"/>
 
-        <Button
-            android:id="@+id/rpsButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_rps"
-            android:drawableStart="@drawable/rps"
-            android:onClick="openRpsActivity"/>
+                <Button
+                    android:id="@+id/monthButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_month"
+                    android:drawableStart="@drawable/month"
+                    android:onClick="openActivity"/>
+
+                <Button
+                    android:id="@+id/rpsButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_rps"
+                    android:drawableStart="@drawable/rps"
+                    android:onClick="openRpsActivity"/>
 
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_margin="10dp">
 
-        <Button
-            android:id="@+id/letterButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_letter"
-            android:drawableStart="@drawable/letter"
-            android:onClick="openActivity" />
+                <Button
+                    android:id="@+id/letterButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_letter"
+                    android:drawableStart="@drawable/letter"
+                    android:onClick="openActivity" />
 
-        <Button
-            android:id="@+id/dicerollButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_diceroll"
-            android:drawableStart="@drawable/diceroll"
-            android:onClick="openDiceRollActivity"/>
+                <Button
+                    android:id="@+id/dicerollButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_diceroll"
+                    android:drawableStart="@drawable/diceroll"
+                    android:onClick="openDiceRollActivity"/>
 
-        <Button
-            android:id="@+id/coinflipButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_coinflip"
-            android:drawableStart="@drawable/coinflip"
-            android:onClick="openCoinFlipActivity"/>
+                <Button
+                    android:id="@+id/coinflipButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_coinflip"
+                    android:drawableStart="@drawable/coinflip"
+                    android:onClick="openCoinFlipActivity"/>
 
-        <Button
-            android:id="@+id/passwordButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_password"
-            android:drawableStart="@drawable/password"
-            android:onClick="openActivity"/>
+                <Button
+                    android:id="@+id/passwordButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_password"
+                    android:drawableStart="@drawable/password"
+                    android:onClick="openActivity"/>
 
-        <Button
-            android:id="@+id/timeButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_time"
-            android:drawableStart="@drawable/time"
-            android:onClick="openActivity"/>
+                <Button
+                    android:id="@+id/timeButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_time"
+                    android:drawableStart="@drawable/time"
+                    android:onClick="openActivity"/>
 
-        <Button
-            android:id="@+id/countryButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_country"
-            android:drawableStart="@drawable/country"
-            android:onClick="openActivity"/>
+                <Button
+                    android:id="@+id/countryButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_country"
+                    android:drawableStart="@drawable/country"
+                    android:onClick="openActivity"/>
 
-        <Button
-            android:id="@+id/ymnButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/string_ymn"
-            android:drawableStart="@drawable/yes_no"
-            android:onClick="openActivity"/>
-
-    </LinearLayout>
+                <Button
+                    android:id="@+id/ymnButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/string_ymn"
+                    android:drawableStart="@drawable/yes_no"
+                    android:onClick="openActivity"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
