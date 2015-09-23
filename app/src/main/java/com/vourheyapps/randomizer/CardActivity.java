@@ -11,6 +11,7 @@ import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -24,12 +25,14 @@ import java.util.Map;
  */
 // TODO checkBox 'K' is not visible on some screens
 // TODO generate customDeck only if there were changes on checkBoxes
-public class CardActivity extends Activity {
+public class CardActivity extends Activity implements CompoundButton.OnCheckedChangeListener {
     private CheckBox[] colorsChecks;
     private CheckBox[] suitsChecks;
     private ImageView showCardView;
     private HistoryList historyList;
     private TypedArray cardIcons;
+    private boolean isDirty;
+    HashMap<Drawable, String> customDeck;
     private final String colorsString = "\u2663\u2660\u2665\u2666"; // ♣♠♥♦
     private final String suitsString = "A234567890JQK";
 
@@ -40,6 +43,8 @@ public class CardActivity extends Activity {
 
         historyList = new HistoryList(this, (ListView)findViewById(R.id.cardHistoryListView));
         showCardView = (ImageView) findViewById(R.id.showCardImageView);
+        customDeck = new HashMap<Drawable, String>();
+        isDirty = true;
 
         initCards();
 
@@ -55,11 +60,15 @@ public class CardActivity extends Activity {
     }
 
     private void initCards() {
+        int i;
         colorsChecks = new CheckBox[4];
         colorsChecks[0] = (CheckBox) findViewById(R.id.cardClubsCheckBox);
         colorsChecks[1] = (CheckBox) findViewById(R.id.cardSpadesCheckBox);
         colorsChecks[2] = (CheckBox) findViewById(R.id.cardHeartsCheckBox);
         colorsChecks[3] = (CheckBox) findViewById(R.id.cardDiamondsCheckBox);
+        for(i = 0; i < 4; ++i) {
+            colorsChecks[i].setOnCheckedChangeListener(this);
+        }
 
         suitsChecks = new CheckBox[13];
         suitsChecks[0] = (CheckBox) findViewById(R.id.cardACheckBox);
@@ -75,17 +84,36 @@ public class CardActivity extends Activity {
         suitsChecks[10] = (CheckBox) findViewById(R.id.cardJCheckBox);
         suitsChecks[11] = (CheckBox) findViewById(R.id.cardQCheckBox);
         suitsChecks[12] = (CheckBox) findViewById(R.id.cardKCheckBox);
+        for(i = 0; i < 13; ++i) {
+            suitsChecks[i].setOnCheckedChangeListener(this);
+        }
 
         cardIcons = getResources().obtainTypedArray(R.array.card_array);
     }
 
     // split this method
     public void shuffleDeck(View v) {
+        if(isDirty) {
+            selectNewDeck();
+        }
+
+        // maybe I'll die for this code
+        int card = MainActivity.random.nextInt(customDeck.size());
+        ArrayList<Map.Entry<Drawable,String>> entries =
+                new ArrayList<Map.Entry<Drawable, String>>(customDeck.entrySet());
+
+        showCardView.setImageDrawable(entries.get(card).getKey());
+        showCardView.invalidate();
+        historyList.addItem(entries.get(card).getValue());
+    }
+
+    private void selectNewDeck() {
         boolean has_color = hasColor();
         boolean has_suit = hasSuit();
+
         Log.d("shuffleDeck", String.valueOf(has_color) + " " + String.valueOf(has_suit));
 
-        HashMap<Drawable, String> customDeck = new HashMap<Drawable, String>();
+        customDeck.clear();
 
         if(!has_color && !has_suit) {
             Toast.makeText(this, "Choose something first", Toast.LENGTH_SHORT).show();
@@ -98,14 +126,7 @@ public class CardActivity extends Activity {
             customDeck = selectBoth(customDeck);
         }
 
-        // maybe I'll die for this code
-        int card = MainActivity.random.nextInt(customDeck.size());
-        ArrayList<Map.Entry<Drawable,String>> entries =
-                new ArrayList<Map.Entry<Drawable, String>>(customDeck.entrySet());
-
-        showCardView.setImageDrawable(entries.get(card).getKey());
-        showCardView.invalidate();
-        historyList.addItem(entries.get(card).getValue());
+        isDirty = false;
     }
 
     private HashMap<Drawable,String> selectColors(HashMap<Drawable,String> customDeck) {
@@ -185,5 +206,10 @@ public class CardActivity extends Activity {
 
     public void clearCardHistory(View v) {
         historyList.clear();
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        isDirty = true;
     }
 }
