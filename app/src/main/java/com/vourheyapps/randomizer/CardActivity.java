@@ -30,8 +30,8 @@ public class CardActivity extends Activity {
     private ImageView showCardView;
     private HistoryList historyList;
     private TypedArray cardIcons;
-    private String colorsString = "\u2663\u2660\u2665\u2666"; // ♣♠♥♦
-    private String suitsString = "A234567890JQK";
+    private final String colorsString = "\u2663\u2660\u2665\u2666"; // ♣♠♥♦
+    private final String suitsString = "A234567890JQK";
 
     @Override
     protected void onCreate(Bundle si) {
@@ -41,6 +41,20 @@ public class CardActivity extends Activity {
         historyList = new HistoryList(this, (ListView)findViewById(R.id.cardHistoryListView));
         showCardView = (ImageView) findViewById(R.id.showCardImageView);
 
+        initCards();
+
+        // Hearts and Diamonds are red
+        final ForegroundColorSpan fcs = new ForegroundColorSpan(Color.rgb(255, 0, 0));
+        SpannableStringBuilder ssb = new SpannableStringBuilder(colorsChecks[2].getText());
+
+        ssb.setSpan(fcs, 0, 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        colorsChecks[2].setText(ssb);
+        ssb = new SpannableStringBuilder(colorsChecks[3].getText());
+        ssb.setSpan(fcs, 0, 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        colorsChecks[3].setText(ssb);
+    }
+
+    private void initCards() {
         colorsChecks = new CheckBox[4];
         colorsChecks[0] = (CheckBox) findViewById(R.id.cardClubsCheckBox);
         colorsChecks[1] = (CheckBox) findViewById(R.id.cardSpadesCheckBox);
@@ -63,16 +77,6 @@ public class CardActivity extends Activity {
         suitsChecks[12] = (CheckBox) findViewById(R.id.cardKCheckBox);
 
         cardIcons = getResources().obtainTypedArray(R.array.card_array);
-
-        // Hearts and Diamonds are red
-        final ForegroundColorSpan fcs = new ForegroundColorSpan(Color.rgb(255, 0, 0));
-        SpannableStringBuilder ssb = new SpannableStringBuilder(colorsChecks[2].getText());
-
-        ssb.setSpan(fcs, 0, 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-        colorsChecks[2].setText(ssb);
-        ssb = new SpannableStringBuilder(colorsChecks[3].getText());
-        ssb.setSpan(fcs, 0, 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-        colorsChecks[3].setText(ssb);
     }
 
     // split this method
@@ -81,56 +85,17 @@ public class CardActivity extends Activity {
         boolean has_suit = hasSuit();
         Log.d("shuffleDeck", String.valueOf(has_color) + " " + String.valueOf(has_suit));
 
-        int i;
-        String s;
         HashMap<Drawable, String> customDeck = new HashMap<Drawable, String>();
 
         if(!has_color && !has_suit) {
             Toast.makeText(this, "Choose something first", Toast.LENGTH_SHORT).show();
             return;
         } else if(has_color && !has_suit) {
-            for(i = 0; i < 52; ++i) {
-                if(colorsChecks[i % 4].isChecked()) {
-                    s = "" + colorsString.charAt(i%4) + (i % 13 == 10 ? "10" : suitsString.charAt(i % 13));
-                    customDeck.put(cardIcons.getDrawable(i), s);
-                }
-            }
+            customDeck = selectColors(customDeck);
         } else if(!has_color) {
-            for(i = 0; i < 13; ++i) {
-                if(suitsChecks[i].isChecked()) {
-                    String as = "" + (i % 13 == 10 ? "10" : suitsString.charAt(i % 13));
-                    s = "" + colorsString.charAt(0) + as;
-                    customDeck.put(cardIcons.getDrawable(i * 4), s);
-                    s = "" + colorsString.charAt(1) + as;
-                    customDeck.put(cardIcons.getDrawable(i * 4 + 1), s);
-                    s = "" + colorsString.charAt(2) + as;
-                    customDeck.put(cardIcons.getDrawable(i * 4 + 2), s);
-                    s = "" + colorsString.charAt(3) + as;
-                    customDeck.put(cardIcons.getDrawable(i * 4 + 3), s);
-                }
-            }
+            customDeck = selectSuits(customDeck);
         } else {
-            for(i = 0; i < 13; ++i) {
-                if(suitsChecks[i].isChecked()) {
-                    s = "" + (i % 13 == 10 ? "10" : suitsString.charAt(i % 13));
-                    if(colorsChecks[0].isChecked()) {
-                        s = colorsString.charAt(0) + s;
-                        customDeck.put(cardIcons.getDrawable(i * 4), s);
-                    }
-                    if(colorsChecks[1].isChecked()) {
-                        s = colorsString.charAt(1) + s;
-                        customDeck.put(cardIcons.getDrawable(i * 4 + 1), s);
-                    }
-                    if(colorsChecks[2].isChecked()) {
-                        s = colorsString.charAt(2) + s;
-                        customDeck.put(cardIcons.getDrawable(i * 4 + 2), s);
-                    }
-                    if(colorsChecks[3].isChecked()) {
-                        s = colorsString.charAt(3) + s;
-                        customDeck.put(cardIcons.getDrawable(i * 4 + 3), s);
-                    }
-                }
-            }
+            customDeck = selectBoth(customDeck);
         }
 
         // maybe I'll die for this code
@@ -141,6 +106,61 @@ public class CardActivity extends Activity {
         showCardView.setImageDrawable(entries.get(card).getKey());
         showCardView.invalidate();
         historyList.addItem(entries.get(card).getValue());
+    }
+
+    private HashMap<Drawable,String> selectColors(HashMap<Drawable,String> customDeck) {
+        String s;
+        for(int i = 0; i < 52; ++i) {
+            if(colorsChecks[i % 4].isChecked()) {
+                s = "" + colorsString.charAt(i%4) + (i % 13 == 9 ? "10" : suitsString.charAt(i % 13));
+                customDeck.put(cardIcons.getDrawable(i), s);
+            }
+        }
+        return customDeck;
+    }
+
+    private HashMap<Drawable,String> selectSuits(HashMap<Drawable,String> customDeck) {
+        String s;
+        for(int i = 0; i < 13; ++i) {
+            if(suitsChecks[i].isChecked()) {
+                String as = "" + (i % 13 == 9 ? "10" : suitsString.charAt(i % 13));
+                s = "" + colorsString.charAt(0) + as;
+                customDeck.put(cardIcons.getDrawable(i * 4), s);
+                s = "" + colorsString.charAt(1) + as;
+                customDeck.put(cardIcons.getDrawable(i * 4 + 1), s);
+                s = "" + colorsString.charAt(2) + as;
+                customDeck.put(cardIcons.getDrawable(i * 4 + 2), s);
+                s = "" + colorsString.charAt(3) + as;
+                customDeck.put(cardIcons.getDrawable(i * 4 + 3), s);
+            }
+        }
+        return customDeck;
+    }
+
+    private HashMap<Drawable,String> selectBoth(HashMap<Drawable,String> customDeck) {
+        String s;
+        for(int i = 0; i < 13; ++i) {
+            if(suitsChecks[i].isChecked()) {
+                String as = "" + (i % 13 == 9 ? "10" : suitsString.charAt(i % 13));
+                if(colorsChecks[0].isChecked()) {
+                    s = colorsString.charAt(0) + as;
+                    customDeck.put(cardIcons.getDrawable(i * 4), s);
+                }
+                if(colorsChecks[1].isChecked()) {
+                    s = colorsString.charAt(1) + as;
+                    customDeck.put(cardIcons.getDrawable(i * 4 + 1), s);
+                }
+                if(colorsChecks[2].isChecked()) {
+                    s = colorsString.charAt(2) + as;
+                    customDeck.put(cardIcons.getDrawable(i * 4 + 2), s);
+                }
+                if(colorsChecks[3].isChecked()) {
+                    s = colorsString.charAt(3) + as;
+                    customDeck.put(cardIcons.getDrawable(i * 4 + 3), s);
+                }
+            }
+        }
+        return customDeck;
     }
 
     private boolean hasColor() {

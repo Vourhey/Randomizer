@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/showCardImageView"
-        android:layout_width="fill_parent"
-        android:layout_height="104dp"/>
+        android:layout_width="82dp"
+        android:layout_height="114dp"
+        android:padding="10dp"/>
 
     <LinearLayout
+        android:id="@+id/colorsLinearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:paddingLeft="10dp"
+        android:orientation="vertical"
+        android:layout_toRightOf="@id/showCardImageView">
 
         <CheckBox
             android:id="@+id/cardClubsCheckBox"
@@ -24,13 +27,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="\u2660 Spades"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
 
         <CheckBox
             android:id="@+id/cardHeartsCheckBox"
@@ -46,9 +42,10 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/firstLineLinearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_toRightOf="@id/colorsLinearLayout">
 
         <CheckBox
             android:id="@+id/cardACheckBox"
@@ -80,18 +77,21 @@
             android:layout_height="wrap_content"
             android:text="5"/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/secondLineLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_below="@+id/firstLineLinearLayout"
+        android:layout_toRightOf="@id/colorsLinearLayout">
+
         <CheckBox
             android:id="@+id/card6CheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="6"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
 
         <CheckBox
             android:id="@+id/card7CheckBox"
@@ -117,6 +117,14 @@
             android:layout_height="wrap_content"
             android:text="10"/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/secondLineLinearLayout"
+        android:layout_toRightOf="@+id/colorsLinearLayout">
+
         <CheckBox
             android:id="@+id/cardJCheckBox"
             android:layout_width="wrap_content"
@@ -138,8 +146,10 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/buttonsLinearLayout"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/colorsLinearLayout">
 
         <Button
             android:id="@+id/shuffleDeckButton"
@@ -162,6 +172,7 @@
     <ListView
         android:id="@+id/cardHistoryListView"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonsLinearLayout"/>
 
-</LinearLayout>
+</RelativeLayout>
