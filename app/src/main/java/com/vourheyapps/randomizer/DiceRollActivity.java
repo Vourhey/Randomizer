@@ -43,6 +43,14 @@ public class DiceRollActivity extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 numberOfDice = i + 1;
+                if(numberOfDice == 1) {
+                    gridView.setNumColumns(1);
+                } else if(numberOfDice == 2 || numberOfDice == 4) {
+                    gridView.setNumColumns(2);
+                } else {
+                    gridView.setNumColumns(3);
+                }
+                rollDice(null);
             }
 
             @Override
@@ -107,7 +115,6 @@ public class DiceRollActivity extends Activity {
             if (convertView == null) {
                 // if it's not recycled, initialize some attributes
                 int width = (int)getResources().getDimension(R.dimen.dice_width);
-                Log.i("Dice width", "" + width);
                 imageView = new ImageView(mContext);
                 imageView.setLayoutParams(new GridView.LayoutParams(width,width));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);

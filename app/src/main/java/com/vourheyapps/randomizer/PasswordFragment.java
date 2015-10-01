@@ -1,9 +1,11 @@
 package com.vourheyapps.randomizer;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -34,6 +36,13 @@ public class PasswordFragment extends CommonFragment {
     }
 
     public String generate() throws RuntimeException {
+        View view = getActivity().getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm =
+                    (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+
         String lengthStr = lengthText.getText().toString();
         if(lengthStr.isEmpty()) {
             Toast.makeText(getActivity(), "You should set the length of password", Toast.LENGTH_SHORT).show();

@@ -1,9 +1,11 @@
 package com.vourheyapps.randomizer;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -29,6 +31,13 @@ public class NumberFragment extends CommonFragment {
     }
 
     public String generate() throws RuntimeException{
+        View view = getActivity().getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm =
+                    (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+
         String minStr = minNumberText.getText().toString();
         String maxStr = maxNumberText.getText().toString();
         if(minStr.isEmpty() || maxStr.isEmpty()) {
@@ -38,7 +47,7 @@ public class NumberFragment extends CommonFragment {
         }
 
         int min = Integer.parseInt(minStr);
-        int max = Integer.parseInt(maxStr);
+        int max = Integer.parseInt(maxStr) + 1;
 
         if(min > max) {
             Toast.makeText(getActivity(), "Min and max are switched", Toast.LENGTH_SHORT).show();
@@ -54,10 +63,10 @@ public class NumberFragment extends CommonFragment {
         int rand = MainActivity.random.nextInt(max - min) + min;
         int pos = numberSpinner.getSelectedItemPosition();
         switch (pos) {
-        case 1:
-            rand = MainActivity.random.nextInt((max - min)/2) * 2 + min;
+        case 1:     // even
+            rand = MainActivity.random.nextInt((int)((max - min)/2.0f + 0.5f)) * 2 + min;
             break;
-        case 2:
+        case 2:     // odd
             rand = MainActivity.random.nextInt((max - min)/2) * 2 + min + 1;
             break;
         }
