@@ -36,8 +36,8 @@ public class DiceRollActivity extends Activity {
             spinnerArray.add(i);
         }
         ArrayAdapter<Integer> spinnerAdapter = new ArrayAdapter<Integer>(this,
-                android.R.layout.simple_spinner_item, spinnerArray);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                android.R.layout.simple_spinner_dropdown_item, spinnerArray);
+        //
         numberOfDiceSpinner.setAdapter(spinnerAdapter);
         numberOfDiceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

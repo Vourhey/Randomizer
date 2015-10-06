@@ -7,6 +7,6 @@ import android.app.Fragment;
  */
 public class CommonFragment extends Fragment {
     public String generate() {
-        return  "common";
+        return "generate";
     }
 }

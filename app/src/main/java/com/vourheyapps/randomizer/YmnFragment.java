@@ -26,7 +26,7 @@ public class YmnFragment extends CommonFragment {
                     (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
-        
+
         int r = MainActivity.random.nextInt(ymnArray.length);
         return ymnArray[r];
     }
