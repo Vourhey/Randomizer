@@ -2,22 +2,21 @@ package com.vourheyapps.randomizer;
 
 import android.app.Activity;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by vourhey on 8/9/15.
@@ -27,16 +26,51 @@ import java.util.Set;
 public class ImageActivity extends Activity {
     private ArrayList<String> folderArray;
     private Map<String, ArrayList<String>> allImagesMap;
-    private ImageView imageView;
+    private WebView imageView;
     private String currentFolder;
+
+    // for onTouch method
+    private float mDownPosX;
+    private float mDownPosY;
+    private float mUpPosX;
+    private float mUpPosY;
+    private float MOVE_THRESHOLD_DP;
+
+    private final String HTML = "<html><body style=\"background-color: transparent;\"><img src = \"file://%s\" /></body></html>";
 
     @Override
     protected void onCreate(Bundle si) {
         super.onCreate(si);
         setContentView(R.layout.image_activity);
 
-        imageView = (ImageView) findViewById(R.id.showRandomImage);
+        MOVE_THRESHOLD_DP = 20.0F * getResources().getDisplayMetrics().density;
+
         allImagesMap = getImagesMap();
+
+        imageView = (WebView) findViewById(R.id.showRandomImage);
+        imageView.getSettings().setAllowFileAccess(true);
+        imageView.setPadding(0, 0, 0, 0);
+        imageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    mDownPosX = event.getX();
+                    mDownPosY = event.getY();
+                    break;
+                case MotionEvent.ACTION_UP:
+                    mUpPosX = event.getX();
+                    mUpPosY = event.getY();
+                    if ((Math.abs(mUpPosX - mDownPosX) < MOVE_THRESHOLD_DP) && (Math.abs(mUpPosY - mDownPosY) < MOVE_THRESHOLD_DP)) {
+                        Log.i("webview", "nextImage()");
+                        nextImage(view);
+                    }
+
+                    break;
+                }
+                return false;
+            }
+        });
 
         Spinner chooseFolderSpinner = (Spinner) findViewById(R.id.chooseFolderSpinner);
         folderArray = new ArrayList<String>(allImagesMap.keySet());
@@ -115,47 +149,9 @@ public class ImageActivity extends Activity {
         i = MainActivity.random.nextInt(images.size());
         image = images.get(i);
 
-        int imageHeight = imageView.getHeight();
-        int imageWidth = imageView.getWidth();
-        imageView.setImageBitmap(decodeSampledBitmap(image, imageWidth, imageHeight));
-        imageView.invalidate();
-    }
-
-    private Bitmap decodeSampledBitmap(String path, int reqWidth, int reqHeight) {
-
-        // First decode with inJustDecodeBounds=true to check dimensions
-        final BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(path, options);
-
-        // Calculate inSampleSize
-        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
-
-        // Decode bitmap with inSampleSize set
-        options.inJustDecodeBounds = false;
-        return BitmapFactory.decodeFile(path, options);
-    }
-
-    private int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
-        // Raw height and width of image
-        final int height = options.outHeight;
-        final int width = options.outWidth;
-        int inSampleSize = 1;
-
-        if (height > reqHeight || width > reqWidth) {
-
-            final int halfHeight = height / 2;
-            final int halfWidth = width / 2;
-
-            // Calculate the largest inSampleSize value that is a power of 2 and keeps both
-            // height and width larger than the requested height and width.
-            while ((halfHeight / inSampleSize) > reqHeight
-                    && (halfWidth / inSampleSize) > reqWidth) {
-                inSampleSize *= 2;
-            }
-        }
-
-        Log.i("inSampleSize", "" + inSampleSize);
-        return inSampleSize;
+        String html = String.format(HTML, image);
+        Log.i("Html", html);
+        imageView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        imageView.loadDataWithBaseURL("", html, "text/html", "UTF-8", "");
     }
 }
