@@ -41,11 +41,13 @@
         <item>Гласные</item>
         <item>Согласные</item>
     </string-array>
+
     <string-array name="string_array_number">
         <item>Все</item>
         <item>Четные</item>
         <item>Нечетные</item>
     </string-array>
+
     <string-array name="string_months">
         <item>Январь</item>
         <item>Февраль</item>
@@ -60,6 +62,7 @@
         <item>Ноябрь</item>
         <item>Декабрь</item>
     </string-array>
+
     <string-array name="string_countries_spinner">
         <item>Все</item>
         <item>Африка</item>
@@ -73,17 +76,37 @@
         <item>Южная Америка</item>
         <item>Карибы</item>
     </string-array>
+
+    <string-array name="string_heads_or_tails">
+        <item>Орел</item>
+        <item>Решка</item>
+    </string-array>
+
+    <string-array name="string_list_day_of_week_days">
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+        <item>Воскресенье</item>
+    </string-array>
+
     <string-array name="string_ymn_answers">
         <item>Да</item>
         <item>Возможно</item>
         <item>Нет</item>
     </string-array>
+
     <string-array name="string_password_spinner">
         <item>Буквы и цифры</item>
         <item>Буквы, цифры и специальные символы</item>
         <item>Только цифры</item>
         <item>Только буквы</item>
     </string-array>
+
     <string name="string_number_maximum">Максимум</string>
     <string name="string_number_minimum">Минимум</string>
+    <string name="string_list_day_of_week">День неделе</string>
+    <string name="string_rps_change">Изменить</string>
 </resources>
