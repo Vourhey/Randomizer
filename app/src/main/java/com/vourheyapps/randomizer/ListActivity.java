@@ -14,6 +14,9 @@ import android.widget.ListView;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Map;
 
 /**
@@ -22,6 +25,7 @@ import java.util.Map;
 public class ListActivity extends Activity
         implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     public final static String CUSTOM_LISTS_ID = "com.vourheyapps.randomizer.CUSTOM_LISTS";
+    public final static String FIRST_TIME_ID = "com.vourheyapps.randomizer.FIRST_TIME";
 
     private EditText nameOfCustomListEdit;
     private ArrayAdapter<Item> adapter;
@@ -58,6 +62,8 @@ public class ListActivity extends Activity
         super.onCreate(si);
         setContentView(R.layout.list_activity);
 
+        Log.i("ListActivity", "onCreate");
+
         arrayList = new ArrayList<Item>();
         adapter = new ArrayAdapter<Item>(this, android.R.layout.simple_list_item_1, arrayList);
 
@@ -65,6 +71,8 @@ public class ListActivity extends Activity
         listView.setOnItemClickListener(this);
         listView.setOnItemLongClickListener(this);
         listView.setAdapter(adapter);
+
+        checkFirstTime();
 
         nameOfCustomListEdit = (EditText) findViewById(R.id.nameOfCustomList);
         pref = getSharedPreferences(CUSTOM_LISTS_ID, MODE_PRIVATE);
@@ -74,6 +82,49 @@ public class ListActivity extends Activity
                 arrayList.add(new Item(entry.getKey()));
             }
             adapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("ListActivity", "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("ListActivity", "onPause");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i("ListActivity", "ActivityResult");
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void checkFirstTime() {
+        pref = getSharedPreferences(FIRST_TIME_ID, MODE_PRIVATE);
+        if(pref.getBoolean("first_launch", true)) {
+            Log.i("Randomizer", "First launch");
+
+            pref.edit().putBoolean("first_launch", false).apply();
+            pref = getSharedPreferences(CUSTOM_LISTS_ID, MODE_PRIVATE);
+
+            String listName = getResources().getString(R.string.string_list_day_of_week);
+            Item item = new Item(listName);
+
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putString(listName, item.hash());
+            editor.apply();
+
+            HashSet<String> items = new HashSet<String>(
+                    Arrays.asList(getResources().getStringArray(R.array.string_list_day_of_week_days)));
+            pref = getSharedPreferences(CustomListActivity.ITEMS_ID, MODE_PRIVATE);
+            editor = pref.edit();
+            editor.putStringSet(item.hash(), items);
+
+            editor.apply();
         }
     }
 
@@ -97,7 +148,7 @@ public class ListActivity extends Activity
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(this, CustomListActivity.class);
         intent.putExtra(CUSTOM_LISTS_ID, adapter.getItem(i).hash());
-        startActivity(intent);
+        startActivityForResult(intent, 1);
     }
 
     @Override

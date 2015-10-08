@@ -94,6 +94,17 @@
     <string name="string_name">Name</string>
     <string name="string_create_list">Create List</string>
 
+    <string name="string_list_day_of_week">Day of week</string>
+    <string-array name="string_list_day_of_week_days">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
     <!-- CustomListActivity -->
 
     <string name="string_item">Item</string>

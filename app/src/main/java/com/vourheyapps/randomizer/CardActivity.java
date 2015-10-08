@@ -68,6 +68,7 @@ public class CardActivity extends Activity implements CompoundButton.OnCheckedCh
         colorsChecks[3] = (CheckBox) findViewById(R.id.cardDiamondsCheckBox);
         for(i = 0; i < 4; ++i) {
             colorsChecks[i].setOnCheckedChangeListener(this);
+            colorsChecks[i].setChecked(true);
         }
 
         suitsChecks = new CheckBox[13];
@@ -86,6 +87,7 @@ public class CardActivity extends Activity implements CompoundButton.OnCheckedCh
         suitsChecks[12] = (CheckBox) findViewById(R.id.cardKCheckBox);
         for(i = 0; i < 13; ++i) {
             suitsChecks[i].setOnCheckedChangeListener(this);
+            suitsChecks[i].setChecked(true);
         }
 
         cardIcons = getResources().obtainTypedArray(R.array.card_array);

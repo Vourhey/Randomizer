@@ -63,6 +63,12 @@ public class CommonActivity extends Activity {
         fragmentTransaction.commit();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        generate(null);
+    }
+
     public void generate(View v) {
         try {
             String item = currentFragment.generate();

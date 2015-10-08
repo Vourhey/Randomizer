@@ -27,7 +27,7 @@ public class ImageActivity extends Activity {
     private ArrayList<String> folderArray;
     private Map<String, ArrayList<String>> allImagesMap;
     private WebView imageView;
-    private String currentFolder;
+    private String currentFolder = "All";
 
     // for onTouch method
     private float mDownPosX;
@@ -88,6 +88,12 @@ public class ImageActivity extends Activity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) { }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        nextImage(null);
     }
 
     private Map<String, ArrayList<String>> getImagesMap() {
