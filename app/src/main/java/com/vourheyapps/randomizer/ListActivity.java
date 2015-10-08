@@ -85,24 +85,6 @@ public class ListActivity extends Activity
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i("ListActivity", "onResume");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i("ListActivity", "onPause");
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.i("ListActivity", "ActivityResult");
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
     private void checkFirstTime() {
         pref = getSharedPreferences(FIRST_TIME_ID, MODE_PRIVATE);
         if(pref.getBoolean("first_launch", true)) {

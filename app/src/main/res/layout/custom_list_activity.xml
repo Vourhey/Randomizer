@@ -56,7 +56,6 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceSmall"
         android:layout_centerHorizontal="true"
-
         android:layout_alignParentBottom="true"
         android:text="@string/string_long_tap_to_delete"/>
 

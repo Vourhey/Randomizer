@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -57,27 +56,8 @@ public class CustomListActivity extends Activity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i("CustomListActivity", "onResume " + id);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i("CustomListActivity", "onPause " + id);
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.i("CustomListActivity", "onRestart " + id);
-    }
-
-    @Override
     protected void onStop() {
         super.onStop();
-        Log.i("CustomListActivity", "onStop " + id);
 
         // write items to preference
         SharedPreferences.Editor editor = pref.edit();
@@ -86,9 +66,6 @@ public class CustomListActivity extends Activity {
         editor.putStringSet(id, hashSet);
 
         editor.apply();
-
-        setResult(RESULT_OK);
-        finish();
     }
 
     public void addElement(View v) {
