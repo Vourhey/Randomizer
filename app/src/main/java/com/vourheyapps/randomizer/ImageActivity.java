@@ -13,6 +13,7 @@ import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,6 +29,7 @@ public class ImageActivity extends Activity {
     private Map<String, ArrayList<String>> allImagesMap;
     private WebView imageView;
     private String currentFolder = "All";
+    private boolean empty;
 
     // for onTouch method
     private float mDownPosX;
@@ -46,6 +48,7 @@ public class ImageActivity extends Activity {
         MOVE_THRESHOLD_DP = 20.0F * getResources().getDisplayMetrics().density;
 
         allImagesMap = getImagesMap();
+        empty = allImagesMap.isEmpty();
 
         imageView = (WebView) findViewById(R.id.showRandomImage);
         imageView.getSettings().setAllowFileAccess(true);
@@ -63,7 +66,7 @@ public class ImageActivity extends Activity {
                     mUpPosY = event.getY();
                     if ((Math.abs(mUpPosX - mDownPosX) < MOVE_THRESHOLD_DP) && (Math.abs(mUpPosY - mDownPosY) < MOVE_THRESHOLD_DP)) {
                         Log.i("webview", "nextImage()");
-                        nextImage(view);
+                        nextImage();
                     }
 
                     break;
@@ -93,7 +96,7 @@ public class ImageActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        nextImage(null);
+        nextImage();
     }
 
     private Map<String, ArrayList<String>> getImagesMap() {
@@ -116,7 +119,7 @@ public class ImageActivity extends Activity {
                 null        // Ordering
         );
 
-        if (cur.moveToFirst()) {
+        if (cur != null) {
             String path;
             int filePathColumn = cur.getColumnIndex(MediaStore.MediaColumns.DATA);
             int folderColumn = cur.getColumnIndex(MediaStore.Images.Media.BUCKET_DISPLAY_NAME);
@@ -142,7 +145,12 @@ public class ImageActivity extends Activity {
         return map;
     }
 
-    public void nextImage(View v) {
+    private void nextImage() {
+        if(empty) {
+            Toast.makeText(this, "There're no images", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         int i;
         String image;
         String cf = currentFolder;

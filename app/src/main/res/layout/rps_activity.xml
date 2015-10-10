@@ -68,14 +68,14 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/string_rps_change"
             android:onClick="changeRPSIcon"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/string_generate"
@@ -83,10 +83,25 @@
 
     </LinearLayout>
 
-    <Button
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/string_rps_clear_score"
-        android:onClick="clearScore"/>
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/changeModeButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="To RPSLS"
+            android:onClick="changeModeRPS"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/string_rps_clear_score"
+            android:onClick="clearScore"/>
+
+    </LinearLayout>
 
 </LinearLayout>
