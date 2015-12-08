@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by vourhey on 8/3/15.
@@ -21,6 +22,7 @@ public class HistoryList {
     private ArrayList<String> history;
     private ArrayAdapter<String> arrayAdapter;
     private ListView lv;
+    private List<OnHistoryItemClickListener> listeners = new ArrayList<OnHistoryItemClickListener>();
 
     public HistoryList(final Context context, ListView listView) {
         lv = listView;
@@ -36,9 +38,22 @@ public class HistoryList {
                 ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("com.vourheyapps.randomizer", textToClip);
                 clipboard.setPrimaryClip(clip);
-                Toast.makeText(context, "Copied to clipboard", Toast.LENGTH_SHORT).show();
+                // TODO: I should make up somethings better
+              //  Toast.makeText(context, "Copied to clipboard", Toast.LENGTH_SHORT).show();
+
+                for(OnHistoryItemClickListener l : listeners) {
+                    l.onHistoryItemClickListener(textToClip);
+                }
             }
         });
+    }
+
+    public void addListener(OnHistoryItemClickListener l) {
+        listeners.add(l);
+    }
+
+    public void removeListener(OnHistoryItemClickListener l) {
+        listeners.remove(l);
     }
 
     public void addItem(String item) {

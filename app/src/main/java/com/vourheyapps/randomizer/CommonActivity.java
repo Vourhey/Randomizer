@@ -10,10 +10,12 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by vourhey on 8/4/15.
  */
-public class CommonActivity extends Activity {
+public class CommonActivity extends Activity implements OnHistoryItemClickListener {
     private TextView randomTextView;
     private CommonFragment currentFragment;
     private HistoryList historyList;
@@ -64,9 +66,42 @@ public class CommonActivity extends Activity {
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putStringArrayList("HISTORY_ITEMS", historyList.getItems());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        ArrayList<String> items = savedInstanceState.getStringArrayList("HISTORY_ITEMS");
+        if(items != null) {
+            for(String item : items) {
+                historyList.addItem(item);
+            }
+        }
+
+    }
+
+    @Override
+    public void onHistoryItemClickListener(String text) {
+        randomTextView.setText(text);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        historyList.removeListener(currentFragment);
+        historyList.removeListener(this);
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
-        generate(null);
+        historyList.addListener(currentFragment);
+        historyList.addListener(this);
     }
 
     public void generate(View v) {
